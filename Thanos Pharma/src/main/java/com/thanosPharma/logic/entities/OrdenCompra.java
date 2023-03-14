@@ -8,6 +8,6 @@ package com.thanosPharma.logic.entities;
  *
  * @author Kiwi
  */
-public class DetallePedido {
+public class OrdenCompra {
     
 }
