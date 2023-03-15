@@ -4,10 +4,21 @@
  */
 package com.thanosPharma.logic.entities;
 
+import java.util.Date;
+
 /**
  *
  * @author Kiwi
  */
 public class OrdenCompra {
-    
+
+    public OrdenCompra() {
+    }
+
+    private int idProvedor;
+    private int idCompra;
+    private Double preciototal;
+    private String estado;
+    private String userId;
+    private Date fechaCompra;
 }

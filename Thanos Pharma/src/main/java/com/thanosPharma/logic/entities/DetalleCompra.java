@@ -10,4 +10,17 @@ package com.thanosPharma.logic.entities;
  */
 public class DetalleCompra {
     
+    public DetalleCompra(){}
+
+    private Producto productos;
+    private int idCompra;
+    private int Cantidad;
+    private double PrecioUnitario;
+    private int iva;
+    private double TotalProducto;
+
+    public void calcularTotalxProducto() {
+
+    }
+
 }

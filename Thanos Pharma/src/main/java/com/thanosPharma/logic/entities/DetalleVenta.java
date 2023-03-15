@@ -4,6 +4,8 @@
  */
 package com.thanosPharma.logic.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 /**
@@ -12,7 +14,7 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name="DetalleVenta")
+//@Table(name="DetalleVenta")
 public class DetalleVenta {
     private static final long serialVersionUID = 1l;
     
