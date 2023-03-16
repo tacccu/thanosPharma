@@ -4,15 +4,24 @@
  */
 package com.thanosPharma.logic.entities;
 
+import jakarta.persistence.*;
+import java.io.Serializable;
+import lombok.Data;
+
 /**
  *
  * @author Kiwi
  */
-public class Cliente {
+@Data
+@Entity
+@Table(name = "clientes")
+public class Cliente implements Serializable {
 
-    public Cliente() {
-    }
+    private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id_cliente;
     private String TSE;
     private String nombre;
     private String apellido;
