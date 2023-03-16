@@ -6,11 +6,13 @@ package com.thanosPharma.data.services;
 
 import com.thanosPharma.logic.entities.Producto;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Kiwi
  */
+@Service
 public class ProductoServiceImpl implements ProductoService {
 
     @Override

@@ -6,11 +6,13 @@ package com.thanosPharma.data.services;
 
 import com.thanosPharma.logic.entities.OrdenVenta;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Kiwi
  */
+@Service
 public class OrdenVentaServiceImpl implements OrdenVentaService {
 
     @Override

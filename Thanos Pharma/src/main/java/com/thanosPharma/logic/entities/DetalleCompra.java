@@ -4,24 +4,27 @@
  */
 package com.thanosPharma.logic.entities;
 
+import jakarta.persistence.*;
+import lombok.Data;
+
 /**
  *
  * @author Kiwi
  */
+@Data
+@Entity
+@Table(name = "detallecompra")
 public class DetalleCompra {
 
-    public DetalleCompra() {
-    }
+    private static final long serialVersionUID = 1L;
 
-    private Producto productos;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCompra;
-    private int Cantidad;
+    private Producto productos;
+    private int cantidad;
     private double precioUnitario;
     private int iva;
     private double totalProducto;
-
-    public void calcularTotalxProducto() {
-
-    }
 
 }
