@@ -4,10 +4,25 @@
  */
 package com.thanosPharma.logic.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.Data;
+
 /**
  *
  * @author Kiwi
  */
+@Data
+@Entity
+//@Table(name="DetalleVenta")
 public class DetalleVenta {
+    private static final long serialVersionUID = 1l;
+    
+    private Producto producto;
+    private int idVenta;
+    private int cantidad;
+    private double precioUnitario;
+    private int iva;
+    private double totalProducto;
     
 }
