@@ -5,17 +5,26 @@
 package com.thanosPharma.logic.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import java.io.Serializable;
 import lombok.Data;
 
 /**
  *
  * @author Kiwi
  */
-
-public class DetalleVenta {
+@Data
+@Entity
+@Table(name = "detalle_venta")
+public class DetalleVenta implements Serializable {
 
     private static final long serialVersionUID = 1l;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Producto producto;
     private int idVenta;
     private int cantidad;

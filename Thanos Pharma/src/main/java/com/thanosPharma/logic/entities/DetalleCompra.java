@@ -5,6 +5,7 @@
 package com.thanosPharma.logic.entities;
 
 import jakarta.persistence.*;
+import java.io.Serializable;
 import lombok.Data;
 
 /**
@@ -13,8 +14,8 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "detallecompra")
-public class DetalleCompra {
+@Table(name = "detalle_compra")
+public class DetalleCompra implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
