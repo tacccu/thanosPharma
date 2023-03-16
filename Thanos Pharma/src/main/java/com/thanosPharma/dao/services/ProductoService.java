@@ -9,18 +9,5 @@ package com.thanosPharma.dao.services;
  * @author Kiwi
  */
 public class ProductoService {
-    
-    public DetalleCompra(){}
-
-    private Producto productos;
-    private int idCompra;
-    private int Cantidad;
-    private double PrecioUnitario;
-    private int iva;
-    private double TotalProducto;
-
-    public void calcularTotalxProducto() {
-
-    }
 
 }

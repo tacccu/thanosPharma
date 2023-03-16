@@ -9,5 +9,19 @@ package com.thanosPharma.logic.entities;
  * @author Kiwi
  */
 public class DetalleCompra {
-    
+
+    public DetalleCompra() {
+    }
+
+    private Producto productos;
+    private int idCompra;
+    private int Cantidad;
+    private double precioUnitario;
+    private int iva;
+    private double totalProducto;
+
+    public void calcularTotalxProducto() {
+
+    }
+
 }
