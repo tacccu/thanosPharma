@@ -16,12 +16,12 @@ import org.springframework.stereotype.Service;
 public class OrdenVentaServiceImpl implements OrdenVentaService {
 
     @Override
-    public void guardar(OrdenVenta cliente) {
+    public void guardar(OrdenVenta ordenVenta) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void borrar(OrdenVenta cliente) {
+    public void borrar(OrdenVenta ordenVenta) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

@@ -15,8 +15,8 @@ public interface OrdenVentaService {
     
     public List<OrdenVenta> listOrdenesVenta();
 
-    public void guardar(OrdenVenta cliente);
+    public void guardar(OrdenVenta ordenVenta);
 
-    public void borrar(OrdenVenta cliente);
+    public void borrar(OrdenVenta ordenVenta);
     
 }

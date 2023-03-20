@@ -15,7 +15,7 @@ public interface DetalleVentaService {
 
     public List<DetalleVenta> listDetallesVenta();
 
-    public void guardar(DetalleVenta cliente);
+    public void guardar(DetalleVenta detalleVenta);
 
-    public void borrar(DetalleVenta cliente);
+    public void borrar(DetalleVenta detalleVenta);
 }
