@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface DetalleVentaService {
 
-    public List<DetalleVenta> listPersonas();
+    public List<DetalleVenta> listDetallesVenta();
 
     public void guardar(DetalleVenta cliente);
 
