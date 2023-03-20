@@ -38,5 +38,10 @@ public class MainController {
         model.addAttribute("message", "Soy azul");
         return "blue";
     }
+    
+        @GetMapping("/modifUsuario")
+    public String showModifUsuario(Model model) {
+        return "modifUsuario";
+    }
 
 }

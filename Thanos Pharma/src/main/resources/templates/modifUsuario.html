@@ -1,217 +1,201 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html>
+<!doctype html>
+<html lang="en">
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+        <meta name="generator" content="Hugo 0.108.0">
+        <title>Grid Template · Bootstrap v5.3</title>
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/grid/">
+        <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <!-- Custom styles for this template -->
+        <link href="/css/general.css" rel="stylesheet">
     </head>
-    <body>
-        <div class="row g-5">
-            <div class="col-md-5 col-lg-4 order-md-last">
-                <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-primary">Your cart</span>
-                    <span class="badge bg-primary rounded-pill">3</span>
-                </h4>
-                <ul class="list-group mb-3">
-                    <li class="list-group-item d-flex justify-content-between lh-sm">
-                        <div>
-                            <h6 class="my-0">Product name</h6>
-                            <small class="text-muted">Brief description</small>
-                        </div>
-                        <span class="text-muted">$12</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between lh-sm">
-                        <div>
-                            <h6 class="my-0">Second product</h6>
-                            <small class="text-muted">Brief description</small>
-                        </div>
-                        <span class="text-muted">$8</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between lh-sm">
-                        <div>
-                            <h6 class="my-0">Third item</h6>
-                            <small class="text-muted">Brief description</small>
-                        </div>
-                        <span class="text-muted">$5</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between bg-light">
-                        <div class="text-success">
-                            <h6 class="my-0">Promo code</h6>
-                            <small>EXAMPLECODE</small>
-                        </div>
-                        <span class="text-success">−$5</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        <span>Total (USD)</span>
-                        <strong>$20</strong>
-                    </li>
-                </ul>
+    <body class="py-4">
 
-                <form class="card p-2">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Promo code">
-                        <button type="submit" class="btn btn-secondary">Redeem</button>
+        <main>
+            <div class="container">
+
+                <h1>Bootstrap grid examples</h1>
+                <p class="lead">Basic grid layouts to get you familiar with building within the Bootstrap grid system.</p>
+                <p>In these examples the <code>.themed-grid-col</code> class is added to the columns to add some theming. This is not a class that is available in Bootstrap by default.</p>
+
+                <h2 class="mt-4">Five grid tiers</h2>
+                <p>There are five tiers to the Bootstrap grid system, one for each range of devices we support. Each tier starts at a minimum viewport size and automatically applies to the larger devices unless overridden.</p>
+
+                <div class="row mb-3 text-center">
+                    <div class="col-4 themed-grid-col">.col-4</div>
+                    <div class="col-4 themed-grid-col">.col-4</div>
+                    <div class="col-4 themed-grid-col">.col-4</div>
+                </div>
+
+                <div class="row mb-3 text-center">
+                    <div class="col-sm-4 themed-grid-col">.col-sm-4</div>
+                    <div class="col-sm-4 themed-grid-col">.col-sm-4</div>
+                    <div class="col-sm-4 themed-grid-col">.col-sm-4</div>
+                </div>
+
+                <div class="row mb-3 text-center">
+                    <div class="col-md-4 themed-grid-col">.col-md-4</div>
+                    <div class="col-md-4 themed-grid-col">.col-md-4</div>
+                    <div class="col-md-4 themed-grid-col">.col-md-4</div>
+                </div>
+
+                <div class="row mb-3 text-center">
+                    <div class="col-lg-4 themed-grid-col">.col-lg-4</div>
+                    <div class="col-lg-4 themed-grid-col">.col-lg-4</div>
+                    <div class="col-lg-4 themed-grid-col">.col-lg-4</div>
+                </div>
+
+                <div class="row mb-3 text-center">
+                    <div class="col-xl-4 themed-grid-col">.col-xl-4</div>
+                    <div class="col-xl-4 themed-grid-col">.col-xl-4</div>
+                    <div class="col-xl-4 themed-grid-col">.col-xl-4</div>
+                </div>
+
+                <div class="row mb-3 text-center">
+                    <div class="col-xxl-4 themed-grid-col">.col-xxl-4</div>
+                    <div class="col-xxl-4 themed-grid-col">.col-xxl-4</div>
+                    <div class="col-xxl-4 themed-grid-col">.col-xxl-4</div>
+                </div>
+
+                <h2 class="mt-4">Three equal columns</h2>
+                <p>Get three equal-width columns <strong>starting at desktops and scaling to large desktops</strong>. On mobile devices, tablets and below, the columns will automatically stack.</p>
+                <div class="row mb-3 text-center">
+                    <div class="col-md-4 themed-grid-col">.col-md-4</div>
+                    <div class="col-md-4 themed-grid-col">.col-md-4</div>
+                    <div class="col-md-4 themed-grid-col">.col-md-4</div>
+                </div>
+
+                <h2 class="mt-4">Three equal columns alternative</h2>
+                <p>By using the <code>.row-cols-*</code> classes, you can easily create a grid with equal columns.</p>
+                <div class="row row-cols-md-3 mb-3 text-center">
+                    <div class="col themed-grid-col"><code>.col</code> child of <code>.row-cols-md-3</code></div>
+                    <div class="col themed-grid-col"><code>.col</code> child of <code>.row-cols-md-3</code></div>
+                    <div class="col themed-grid-col"><code>.col</code> child of <code>.row-cols-md-3</code></div>
+                </div>
+
+                <h2 class="mt-4">Three unequal columns</h2>
+                <p>Get three columns <strong>starting at desktops and scaling to large desktops</strong> of various widths. Remember, grid columns should add up to twelve for a single horizontal block. More than that, and columns start stacking no matter the viewport.</p>
+                <div class="row mb-3 text-center">
+                    <div class="col-md-3 themed-grid-col">.col-md-3</div>
+                    <div class="col-md-6 themed-grid-col">.col-md-6</div>
+                    <div class="col-md-3 themed-grid-col">.col-md-3</div>
+                </div>
+
+                <h2 class="mt-4">Two columns</h2>
+                <p>Get two columns <strong>starting at desktops and scaling to large desktops</strong>.</p>
+                <div class="row mb-3 text-center">
+                    <div class="col-md-8 themed-grid-col">.col-md-8</div>
+                    <div class="col-md-4 themed-grid-col">.col-md-4</div>
+                </div>
+
+                <h2 class="mt-4">Full width, single column</h2>
+                <p class="text-warning">
+                    No grid classes are necessary for full-width elements.
+                </p>
+
+                <hr class="my-4">
+
+                <h2 class="mt-4">Two columns with two nested columns</h2>
+                <p>Per the documentation, nesting is easy—just put a row of columns within an existing column. This gives you two columns <strong>starting at desktops and scaling to large desktops</strong>, with another two (equal widths) within the larger column.</p>
+                <p>At mobile device sizes, tablets and down, these columns and their nested columns will stack.</p>
+                <div class="row mb-3 text-center">
+                    <div class="col-md-8 themed-grid-col">
+                        <div class="pb-3">
+                            .col-md-8
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 themed-grid-col">.col-md-6</div>
+                            <div class="col-md-6 themed-grid-col">.col-md-6</div>
+                        </div>
                     </div>
-                </form>
+                    <div class="col-md-4 themed-grid-col">.col-md-4</div>
+                </div>
+
+                <hr class="my-4">
+
+                <h2 class="mt-4">Mixed: mobile and desktop</h2>
+                <p>The Bootstrap v5 grid system has six tiers of classes: xs (extra small, this class infix is not used), sm (small), md (medium), lg (large), xl (x-large), and xxl (xx-large). You can use nearly any combination of these classes to create more dynamic and flexible layouts.</p>
+                <p>Each tier of classes scales up, meaning if you plan on setting the same widths for md, lg, xl and xxl, you only need to specify md.</p>
+                <div class="row mb-3 text-center">
+                    <div class="col-md-8 themed-grid-col">.col-md-8</div>
+                    <div class="col-6 col-md-4 themed-grid-col">.col-6 .col-md-4</div>
+                </div>
+                <div class="row mb-3 text-center">
+                    <div class="col-6 col-md-4 themed-grid-col">.col-6 .col-md-4</div>
+                    <div class="col-6 col-md-4 themed-grid-col">.col-6 .col-md-4</div>
+                    <div class="col-6 col-md-4 themed-grid-col">.col-6 .col-md-4</div>
+                </div>
+                <div class="row mb-3 text-center">
+                    <div class="col-6 themed-grid-col">.col-6</div>
+                    <div class="col-6 themed-grid-col">.col-6</div>
+                </div>
+
+                <hr class="my-4">
+
+                <h2 class="mt-4">Mixed: mobile, tablet, and desktop</h2>
+                <div class="row mb-3 text-center">
+                    <div class="col-sm-6 col-lg-8 themed-grid-col">.col-sm-6 .col-lg-8</div>
+                    <div class="col-6 col-lg-4 themed-grid-col">.col-6 .col-lg-4</div>
+                </div>
+                <div class="row mb-3 text-center">
+                    <div class="col-6 col-sm-4 themed-grid-col">.col-6 .col-sm-4</div>
+                    <div class="col-6 col-sm-4 themed-grid-col">.col-6 .col-sm-4</div>
+                    <div class="col-6 col-sm-4 themed-grid-col">.col-6 .col-sm-4</div>
+                </div>
+
+                <hr class="my-4">
+
+                <h2 class="mt-4">Gutters</h2>
+                <p>With <code>.gx-*</code> classes, the horizontal gutters can be adjusted.</p>
+                <div class="row row-cols-1 row-cols-md-3 gx-4 text-center">
+                    <div class="col themed-grid-col"><code>.col</code> with <code>.gx-4</code> gutters</div>
+                    <div class="col themed-grid-col"><code>.col</code> with <code>.gx-4</code> gutters</div>
+                    <div class="col themed-grid-col"><code>.col</code> with <code>.gx-4</code> gutters</div>
+                    <div class="col themed-grid-col"><code>.col</code> with <code>.gx-4</code> gutters</div>
+                    <div class="col themed-grid-col"><code>.col</code> with <code>.gx-4</code> gutters</div>
+                    <div class="col themed-grid-col"><code>.col</code> with <code>.gx-4</code> gutters</div>
+                </div>
+                <p class="mt-4">Use the <code>.gy-*</code> classes to control the vertical gutters.</p>
+                <div class="row row-cols-1 row-cols-md-3 gy-4 text-center">
+                    <div class="col themed-grid-col"><code>.col</code> with <code>.gy-4</code> gutters</div>
+                    <div class="col themed-grid-col"><code>.col</code> with <code>.gy-4</code> gutters</div>
+                    <div class="col themed-grid-col"><code>.col</code> with <code>.gy-4</code> gutters</div>
+                    <div class="col themed-grid-col"><code>.col</code> with <code>.gy-4</code> gutters</div>
+                    <div class="col themed-grid-col"><code>.col</code> with <code>.gy-4</code> gutters</div>
+                    <div class="col themed-grid-col"><code>.col</code> with <code>.gy-4</code> gutters</div>
+                </div>
+                <p class="mt-4">With <code>.g-*</code> classes, the gutters in both directions can be adjusted.</p>
+                <div class="row row-cols-1 row-cols-md-3 g-3 text-center">
+                    <div class="col themed-grid-col"><code>.col</code> with <code>.g-3</code> gutters</div>
+                    <div class="col themed-grid-col"><code>.col</code> with <code>.g-3</code> gutters</div>
+                    <div class="col themed-grid-col"><code>.col</code> with <code>.g-3</code> gutters</div>
+                    <div class="col themed-grid-col"><code>.col</code> with <code>.g-3</code> gutters</div>
+                    <div class="col themed-grid-col"><code>.col</code> with <code>.g-3</code> gutters</div>
+                    <div class="col themed-grid-col"><code>.col</code> with <code>.g-3</code> gutters</div>
+                </div>
             </div>
-            <div class="col-md-7 col-lg-8">
-                <h4 class="mb-3">Billing address</h4>
-                <form class="needs-validation" novalidate="">
-                    <div class="row g-3">
-                        <div class="col-sm-6">
-                            <label for="firstName" class="form-label">First name</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-                            <div class="invalid-feedback">
-                                Valid first name is required.
-                            </div>
-                        </div>
 
-                        <div class="col-sm-6">
-                            <label for="lastName" class="form-label">Last name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-                            <div class="invalid-feedback">
-                                Valid last name is required.
-                            </div>
-                        </div>
+            <div class="container" id="containers">
+                <hr class="my-4">
 
-                        <div class="col-12">
-                            <label for="username" class="form-label">Username</label>
-                            <div class="input-group has-validation">
-                                <span class="input-group-text">@</span>
-                                <input type="text" class="form-control" id="username" placeholder="Username" required="">
-                                <div class="invalid-feedback">
-                                    Your username is required.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-                            <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                            <div class="invalid-feedback">
-                                Please enter a valid email address for shipping updates.
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <label for="address" class="form-label">Address</label>
-                            <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
-                            <div class="invalid-feedback">
-                                Please enter your shipping address.
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
-                            <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-                        </div>
-
-                        <div class="col-md-5">
-                            <label for="country" class="form-label">Country</label>
-                            <select class="form-select" id="country" required="">
-                                <option value="">Choose...</option>
-                                <option>United States</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Please select a valid country.
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <label for="state" class="form-label">State</label>
-                            <select class="form-select" id="state" required="">
-                                <option value="">Choose...</option>
-                                <option>California</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Please provide a valid state.
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <label for="zip" class="form-label">Zip</label>
-                            <input type="text" class="form-control" id="zip" placeholder="" required="">
-                            <div class="invalid-feedback">
-                                Zip code required.
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr class="my-4">
-
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="same-address">
-                        <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
-                    </div>
-
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="save-info">
-                        <label class="form-check-label" for="save-info">Save this information for next time</label>
-                    </div>
-
-                    <hr class="my-4">
-
-                    <h4 class="mb-3">Payment</h4>
-
-                    <div class="my-3">
-                        <div class="form-check">
-                            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
-                            <label class="form-check-label" for="credit">Credit card</label>
-                        </div>
-                        <div class="form-check">
-                            <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
-                            <label class="form-check-label" for="debit">Debit card</label>
-                        </div>
-                        <div class="form-check">
-                            <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
-                            <label class="form-check-label" for="paypal">PayPal</label>
-                        </div>
-                    </div>
-
-                    <div class="row gy-3">
-                        <div class="col-md-6">
-                            <label for="cc-name" class="form-label">Name on card</label>
-                            <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-                            <small class="text-muted">Full name as displayed on card</small>
-                            <div class="invalid-feedback">
-                                Name on card is required
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="cc-number" class="form-label">Credit card number</label>
-                            <input type="text" class="form-control" id="cc-number" placeholder="" required="">
-                            <div class="invalid-feedback">
-                                Credit card number is required
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <label for="cc-expiration" class="form-label">Expiration</label>
-                            <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-                            <div class="invalid-feedback">
-                                Expiration date required
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <label for="cc-cvv" class="form-label">CVV</label>
-                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
-                            <div class="invalid-feedback">
-                                Security code required
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr class="my-4">
-
-                    <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
-                </form>
+                <h2 class="mt-4">Containers</h2>
+                <p>Additional classes added in Bootstrap v4.4 allow containers that are 100% wide until a particular breakpoint. v5 adds a new <code>xxl</code> breakpoint.</p>
             </div>
-        </div>
+
+            <div class="container themed-container text-center">.container</div>
+            <div class="container-sm themed-container text-center">.container-sm</div>
+            <div class="container-md themed-container text-center">.container-md</div>
+            <div class="container-lg themed-container text-center">.container-lg</div>
+            <div class="container-xl themed-container text-center">.container-xl</div>
+            <div class="container-xxl themed-container text-center">.container-xxl</div>
+            <div class="container-fluid themed-container text-center">.container-fluid</div>
+        </main>
+
+
+
     </body>
 </html>
