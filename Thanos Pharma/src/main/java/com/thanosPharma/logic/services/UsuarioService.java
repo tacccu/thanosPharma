@@ -4,8 +4,10 @@
  */
 package com.thanosPharma.logic.services;
 
+import com.thanosPharma.dao.UsuarioDAO;
 import com.thanosPharma.logic.entities.Usuario;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,6 +16,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UsuarioService implements UsuarioServiceInterface {
+
+    @Autowired
+    private UsuarioDAO usuarioDAO;
 
     @Override
     public List<Usuario> listUsuarios() {
