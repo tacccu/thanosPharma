@@ -6,17 +6,28 @@ package com.thanosPharma.logic.services;
 
 import com.thanosPharma.logic.entities.Usuario;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Kiwi
  */
-public interface UsuarioService {
+@Service
+public class UsuarioService implements UsuarioServiceInterface {
 
-    public List<Usuario> listUsuarios();
+    @Override
+    public List<Usuario> listUsuarios() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
-    public void guardar(Usuario usuario);
+    @Override
+    public void guardar(Usuario usuario) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
-    public void borrar(Usuario usuario);
+    @Override
+    public void borrar(Usuario usuario) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 }

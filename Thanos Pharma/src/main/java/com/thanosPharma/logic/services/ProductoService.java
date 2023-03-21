@@ -6,17 +6,33 @@ package com.thanosPharma.logic.services;
 
 import com.thanosPharma.logic.entities.Producto;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Kiwi
  */
-public interface ProductoService {
+@Service
+public class ProductoService implements ProductoServiceInterface {
 
-    public List<Producto> listProductos();
+    @Override
+    public List<Producto> listProductos() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
-    public void guardar(Producto producto);
+    @Override
+    public void saveProduct(Producto producto) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
-    public void borrar(Producto producto);
+    @Override
+    public void deleteProduct(Producto producto) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void searchProduct(Producto producto) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 }

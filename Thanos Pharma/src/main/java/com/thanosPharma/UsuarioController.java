@@ -4,8 +4,8 @@
  */
 package com.thanosPharma;
 
-import com.thanosPharma.logic.services.UsuarioService;
 import org.springframework.stereotype.Controller;
+import com.thanosPharma.logic.services.UsuarioServiceInterface;
 
 /**
  *
@@ -14,6 +14,6 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class UsuarioController {
 
-    private UsuarioService usuarioService;
+    private UsuarioServiceInterface usuarioService;
 
 }
