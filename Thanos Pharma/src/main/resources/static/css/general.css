@@ -62,3 +62,21 @@
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
 }*/
+
+/*          CSS de modifUsuario      */
+#containerFormModifuser {
+    margin-top: 10%;
+    background-color: #ffffff;
+    padding-bottom: 1.5%;
+    border-radius: 4%;
+}
+
+
+/*          CSS GENERALES      */
+body {
+    background-color: #f3f3f3;
+}
+
+.form-group input {
+    background-color: #f3f3f3;
+}

@@ -24,7 +24,7 @@ public class MainController {
 
         return "indice";
     }
-    
+
     @GetMapping("/indice")
     public String start(Model model) {
 
@@ -32,14 +32,14 @@ public class MainController {
 
         return "indice";
     }
-    
+
     @GetMapping("/blue")
     public String showBlue(Model model) {
         model.addAttribute("message", "Soy azul");
         return "blue";
     }
-    
-        @GetMapping("/modifUsuario")
+
+    @GetMapping("/modifUsuario")
     public String showModifUsuario(Model model) {
         return "modifUsuario";
     }
