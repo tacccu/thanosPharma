@@ -71,6 +71,17 @@
     border-radius: 4%;
 }
 
+/*          CSS de mainCliente      */
+
+#listaMainClientes {
+    margin-top: 10%;
+
+}
+
+.topListaMainCliente {
+    display: inline;
+}
+
 
 /*          CSS GENERALES      */
 body {
