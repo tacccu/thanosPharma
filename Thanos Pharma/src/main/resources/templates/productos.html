@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Enviar dades</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Productos</h1>
+
+        <div th:if="${productos!=null && !productos.empty}">
+
+            <!-- Mostrem en una taula les dades del gossos guardats en la BBDD veterinari -->
+            <table border="1">
+                <tr>
+                    <th>Código Nacional</th>
+                    <th>Producto</th>
+                    <th>Descripción</th>
+                    <th>Stock</th>
+                    <th>Requiere receta</th>
+                    <th>Unidades embalaje</th>
+                    <th>Dosis</th>
+                </tr>
+
+                <tr th:each="producto : ${productos}"> 
+                    <td th:text="${producto.codigoNacional}"></td>
+                    <td th:text="${producto.nombreProducto}"></td> 
+                    <td th:text="${producto.descripcion}"></td>
+                    <td th:text="${producto.stock}"></td>
+                    <td th:text="${producto.receta}"></td>
+                    <td th:text="${producto.unidadesEmbalaje}"></td>
+                    <td th:text="${producto.dosis}"></td>
+
+                    <!--Enllaç mitjançant el qual accedirem a la pàgina per editar el gos actual
+                       al qual li correspon l'id que concatenem a l'URL editar-->
+
+                    <!--<td><a th:href="@{/editar/}+${gos.idgos}" th:text="Editar"/></td>-->
+
+                    <!--Enllaç mitjançant el qual accedirem a la pàgina per eliminar el gos actual
+                        al qual li correspon l'id que concatenem a l'URL d'eliminar-->
+
+                    <!--<td><a th:href="@{/eliminar/}+${gos.idgos}" th:text="Eliminar"/></td>-->
+                    <!--<td><a th:href="@{/eliminar(idgos=${gos.idgos})}" th:text="Eliminar"/></td>-->
+                </tr>
+            </table>
+
+        </div>
+
+        <div th:if="${productos==null || productos.empty}">
+            <!-- Mostrem missatge-->
+            No hay productos en la lista.
+        </div>
+
+        <br/>
+        <!--<div><a th:href="@{/formulariGos}" th:text="Afegir"/></div>-->
+
+    </body>
+</html>

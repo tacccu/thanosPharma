@@ -4,9 +4,9 @@
  */
 package com.thanosPharma;
 
+import com.thanosPharma.logic.services.DetalleVentaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import com.thanosPharma.logic.services.DetalleVentaServiceInterface;
 
 /**
  *
@@ -16,6 +16,6 @@ import com.thanosPharma.logic.services.DetalleVentaServiceInterface;
 public class DetalleVentaController {
 
     @Autowired
-    private DetalleVentaServiceInterface detalleVentaService;
+    private DetalleVentaService detalleVentaService;
 
 }

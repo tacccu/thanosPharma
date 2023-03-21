@@ -4,9 +4,9 @@
  */
 package com.thanosPharma;
 
+import com.thanosPharma.logic.services.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import com.thanosPharma.logic.services.ClienteServiceInterface;
 
 /**
  *
@@ -16,6 +16,6 @@ import com.thanosPharma.logic.services.ClienteServiceInterface;
 public class ClienteController {
 
     @Autowired
-    private ClienteServiceInterface clienteService;
+    private ClienteService clienteService;
 
 }
