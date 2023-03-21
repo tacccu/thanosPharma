@@ -4,19 +4,35 @@
  */
 package com.thanosPharma.logic.services;
 
+import com.thanosPharma.dao.OrdenVentaDAO;
 import com.thanosPharma.logic.entities.OrdenVenta;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Kiwi
  */
-public interface OrdenVentaService {
-    
-    public List<OrdenVenta> listOrdenesVenta();
+@Service
+public class OrdenVentaService implements OrdenVentaServiceInterface {
 
-    public void guardar(OrdenVenta ordenVenta);
+    @Autowired
+    private OrdenVentaDAO ordenVentaDAO;
 
-    public void borrar(OrdenVenta ordenVenta);
-    
+    @Override
+    public void guardar(OrdenVenta ordenVenta) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void borrar(OrdenVenta ordenVenta) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public List<OrdenVenta> listOrdenesVenta() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }

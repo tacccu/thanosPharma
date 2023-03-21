@@ -18,13 +18,20 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "producto")
+@Table(name = "productos")
 public class Producto implements Serializable {
 
     private static final long serialVersionUID = 1l;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int codigoNacional;
+    private int codigoNacional;
+
+    private boolean receta;
+    private int stock;
+    private String nombreProducto;
+    private String descripcion;
+    private int unidadesEmbalaje;
+    private String dosis;
 
 }
