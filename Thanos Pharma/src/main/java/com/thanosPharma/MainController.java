@@ -38,6 +38,12 @@ public class MainController {
         model.addAttribute("message", "Soy azul");
         return "blue";
     }
+    
+    @GetMapping("/menu")
+    public String showMenu(Model model) {
+        model.addAttribute("message", "Menuuu");
+        return "menu";
+    }
 
     @GetMapping("/modifUsuario")
     public String showModifUsuario(Model model) {
