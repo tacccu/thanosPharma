@@ -6,16 +6,28 @@ package com.thanosPharma.logic.services;
 
 import com.thanosPharma.logic.entities.DetalleVenta;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Kiwi
  */
-public interface DetalleVentaService {
+@Service
+public class DetalleVentaService implements DetalleVentaServiceInterface {
 
-    public List<DetalleVenta> listDetallesVenta();
+    @Override
+    public void guardar(DetalleVenta detalleVenta) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
-    public void guardar(DetalleVenta detalleVenta);
+    @Override
+    public void borrar(DetalleVenta detalleVenta) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
-    public void borrar(DetalleVenta detalleVenta);
+    @Override
+    public List<DetalleVenta> listDetallesVenta() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }

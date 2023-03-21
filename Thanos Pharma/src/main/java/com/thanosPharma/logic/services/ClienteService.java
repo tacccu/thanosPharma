@@ -6,17 +6,28 @@ package com.thanosPharma.logic.services;
 
 import com.thanosPharma.logic.entities.Cliente;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Kiwi
  */
-public interface ClienteService {
+@Service
+public class ClienteService implements ClienteServiceInterface {
 
-    public List<Cliente> listClientes();
+    @Override
+    public void guardar(Cliente cliente) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
-    public void guardar(Cliente cliente);
+    @Override
+    public void borrar(Cliente cliente) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
-    public void borrar(Cliente cliente);
+    @Override
+    public List<Cliente> listClientes() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 }

@@ -24,7 +24,7 @@ public class MainController {
 
         return "indice";
     }
-    
+
     @GetMapping("/indice")
     public String start(Model model) {
 
@@ -32,7 +32,7 @@ public class MainController {
 
         return "indice";
     }
-    
+
     @GetMapping("/blue")
     public String showBlue(Model model) {
         model.addAttribute("message", "Soy azul");
@@ -43,6 +43,18 @@ public class MainController {
     public String login(Model model) {
         model.addAttribute("message", "Soy azul");
         return "login";
+
+    }
+     
+    @GetMapping("/menu")
+    public String showMenu(Model model) {
+        model.addAttribute("message", "Menuuu");
+        return "menu";
+    }
+
+    @GetMapping("/modifUsuario")
+    public String showModifUsuario(Model model) {
+        return "modifUsuario";
     }
 
 }
