@@ -57,4 +57,8 @@ public class MainController {
         return "modifUsuario";
     }
 
+    @GetMapping("/mainClientes")
+    public String showMainClientes(Model model) {
+        return "mainClientes";
+    }
 }

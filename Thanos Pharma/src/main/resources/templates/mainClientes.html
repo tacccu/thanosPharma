@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <title>Clientes</title>
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/grid/">
+        <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <!-- Custom styles for this template -->
+        <link href="/css/general.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <main>
+            <div class="container" id="listaMainClientes">
+                <div class="container">
+                    <div id="topListaMainCliente">
+                        <button type="submit" class="btn btn-primary">Añadir cliente</button>
+                        <button type="submit" class="btn btn-primary">Eliminar cliente</button>
+                        <button type="submit" class="btn btn-primary">Visualizar cliente</button>
+                        <div class="col-xs-2">
+                            <input type="search" class="form-control rounded" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon" />
+                            <button type="button" class="btn btn-outline-primary">buscar</button>
+                        </div>
+                        <div class="col-xs-2">
+                            <select class="form-select" aria-label="Selecciona como quiere ordenar">
+                                <option selected>Selecciona como ordenar</option>
+                                <option value="idUs">id Usuario</option>
+                                <option value="municipio">Municipio</option>
+                            </select>    
+                        </div>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Dirección</th>
+                            <th scope="col">Municipio</th>
+                            <th scope="col">CP</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Teléfono</th>
+                            <th scope="col">TSE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>Vaquilla, Portal 4 piso 3º4</td>
+                            <td>Terrassa</td>
+                            <td>08224</td>
+                            <td>motto@email.com</td>
+                            <td>8541842</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </body>
+</html>
