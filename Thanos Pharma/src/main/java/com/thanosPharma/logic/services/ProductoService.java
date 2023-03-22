@@ -17,29 +17,32 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class ProductoService implements ProductoServiceInterface {
-
+    
     @Autowired
     private ProductoDAO productoDAO;
-
+    
     @Override
     @Transactional(readOnly = true)
     public List<Producto> listProductos() {
         return (List<Producto>) productoDAO.findAll();
     }
-
+    
     @Override
+    @Transactional
     public void saveProduct(Producto producto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        productoDAO.save(producto);
     }
-
+    
     @Override
+    @Transactional
     public void deleteProduct(Producto producto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        productoDAO.delete(producto);
     }
-
+    
     @Override
-    public void searchProduct(Producto producto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    @Transactional(readOnly = true)
+    public Producto searchProduct(Producto producto) {
+        return productoDAO.findById(producto.getCodigoNacional()).orElse(null);
     }
-
+    
 }
