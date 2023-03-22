@@ -11,6 +11,6 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author Kiwi
  */
-public interface ProductoDAO extends CrudRepository<Producto, Long> {
+public interface ProductoDAO extends CrudRepository<Producto, Integer> {
 
 }

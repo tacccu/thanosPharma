@@ -19,6 +19,6 @@ public interface ProductoServiceInterface {
 
     public void deleteProduct(Producto producto);
 
-    public void searchProduct(Producto producto);
+    public Producto searchProduct(Producto producto);
 
 }
