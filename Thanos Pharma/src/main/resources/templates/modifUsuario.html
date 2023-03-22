@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,22 +14,22 @@
     <body>
         <main>
             <div class="container" id="containerFormModifuser">
-                <h1>Mi cuenta</h1>
+                <h1 th:text="#{modifUser.titol}"></h1>
                 <form>
                     <div class="form-group">
-                        <label for="nombreModifUs">Nombre:</label>
+                        <label for="nombreModifUs" th:text="#{nomCom.lab.nom}"></label>
                         <input type="nombre" class="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Introduzca el nombre">
                     </div>
                     <div class="form-group">
-                        <label for="emailModifUs">Email:</label>
+                        <label for="emailModifUs" th:text="#{nomCom.lab.email}"></label>
                         <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Introduzca el mail">
                     </div>
                     <div class="form-group">
-                        <label for="telefonoModifUs">Teléfono:</label>
+                        <label for="telefonoModifUs" th:text="#{nomCom.lab.telef}"></label>
                         <input type="telefono" class="form-control" id="telefono" aria-describedby="emailHelp" placeholder="Introduzca el teléfono">
                     </div>
                     <br><br>
-                    <button type="submit" class="btn btn-primary">Modificar datos</button>
+                    <button type="submit" class="btn btn-primary" th:text="#{nomCom.but.modificar}"></button>
                 </form>
         </main>
     </body>
