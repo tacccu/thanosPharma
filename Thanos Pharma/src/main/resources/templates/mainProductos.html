@@ -1,57 +1,56 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
+<html lang="es">
     <head>
-        <title>Enviar dades</title>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <title th:text="#{productos.title}"></title>
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/grid/">
+        <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <!-- Custom styles for this template -->
+        <link href="/css/general.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <h1>Productos</h1>
-
-        <div th:if="${productos!=null && !productos.empty}">
-
-            <!-- Mostrem en una taula les dades del gossos guardats en la BBDD veterinari -->
-            <table border="1">
-                <tr>
-                    <th>Código Nacional</th>
-                    <th>Producto</th>
-                    <th>Descripción</th>
-                    <th>Stock</th>
-                    <th>Requiere receta</th>
-                    <th>Unidades embalaje</th>
-                    <th>Dosis</th>
-                </tr>
-
-                <tr th:each="producto : ${productos}"> 
-                    <td th:text="${producto.codigoNacional}"></td>
-                    <td th:text="${producto.nombreProducto}"></td> 
-                    <td th:text="${producto.descripcion}"></td>
-                    <td th:text="${producto.stock}"></td>
-                    <td th:text="${producto.receta}"></td>
-                    <td th:text="${producto.unidadesEmbalaje}"></td>
-                    <td th:text="${producto.dosis}"></td>
-
-                    <!--Enllaç mitjançant el qual accedirem a la pàgina per editar el gos actual
-                       al qual li correspon l'id que concatenem a l'URL editar-->
-
-                    <!--<td><a th:href="@{/editar/}+${gos.idgos}" th:text="Editar"/></td>-->
-
-                    <!--Enllaç mitjançant el qual accedirem a la pàgina per eliminar el gos actual
-                        al qual li correspon l'id que concatenem a l'URL d'eliminar-->
-
-                    <!--<td><a th:href="@{/eliminar/}+${gos.idgos}" th:text="Eliminar"/></td>-->
-                    <!--<td><a th:href="@{/eliminar(idgos=${gos.idgos})}" th:text="Eliminar"/></td>-->
-                </tr>
-            </table>
-
-        </div>
-
-        <div th:if="${productos==null || productos.empty}">
-            <!-- Mostrem missatge-->
-            No hay productos en la lista.
-        </div>
-
-        <br/>
-        <!--<div><a th:href="@{/formulariGos}" th:text="Afegir"/></div>-->
-
+        <main>
+            <div class="container" id="listaMainClientes">
+                <div class="container">
+                    <h1 th:text="#{productos.title}"/>
+                    <div id="topListaMainCliente">
+                        <button type="submit" class="btn btn-primary" th:text="#{productos.btn.add}"/>
+                        <button type="submit" class="btn btn-primary" th:text="#{productos.btn.delete}"/>
+                        <button type="submit" class="btn btn-primary" th:text="#{productos.btn.modify}"/>
+                        <div class="col-xs-2">
+                            <input type="search" class="form-control rounded" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon" />
+                            <button type="button" class="btn btn-outline-primary" th:text="#{nomCom.btn.search}"/>
+                        </div>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" th:text="#{productos.col.id}"/>
+                            <th scope="col" th:text="#{productos.col.receta}"/>
+                            <th scope="col" th:text="#{productos.col.stock}"/>
+                            <th scope="col" th:text="#{productos.col.name}"/>
+                            <th scope="col" th:text="#{productos.col.description}"/>
+                            <th scope="col" th:text="#{productos.col.quantityPerPackage}"/>
+                            <th scope="col" th:text="#{productos.col.dose}"/>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="producto : ${productos}">
+                            <td th:text="${producto.codigoNacional}"/>
+                            <td th:text="${producto.receta}"/>
+                            <td th:text="${producto.stock}"/>
+                            <td th:text="${producto.nombreProducto}"/>
+                            <td th:text="${producto.descripcion}"/>
+                            <td th:text="${producto.unidadesEmbalaje}"/>
+                            <td th:text="${producto.dosis}"/>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
     </body>
 </html>

@@ -26,7 +26,7 @@ public class ProductoController {
         //llistarGossos() retorna el llistat d'objectes gos guardats en la taula gossos de la BBDD    
         model.addAttribute("productos", productoService.listProductos());
 
-        return "productos"; //Retorna la pàgina iniciEnviarDades
+        return "mainProductos"; //Retorna la pàgina iniciEnviarDades
     }
 
 }
