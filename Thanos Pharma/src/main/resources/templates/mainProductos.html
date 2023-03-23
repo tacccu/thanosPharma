@@ -29,6 +29,7 @@
                 <table class="table">
                     <thead>
                         <tr>
+                            <th scope="col"/>
                             <th scope="col" th:text="#{productos.col.id}"/>
                             <th scope="col" th:text="#{productos.col.receta}"/>
                             <th scope="col" th:text="#{productos.col.stock}"/>
@@ -40,6 +41,7 @@
                     </thead>
                     <tbody>
                         <tr th:each="producto : ${productos}">
+                            <td><input type="checkbox" name="selectedProducto" th:value="${producto.codigoNacional}"/></td>
                             <td th:text="${producto.codigoNacional}"/>
                             <td th:text="${producto.receta}"/>
                             <td th:text="${producto.stock}"/>
