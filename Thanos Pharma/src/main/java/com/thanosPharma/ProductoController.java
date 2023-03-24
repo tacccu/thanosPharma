@@ -4,11 +4,13 @@
  */
 package com.thanosPharma;
 
+import com.thanosPharma.logic.entities.Producto;
 import com.thanosPharma.logic.services.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  *
@@ -20,13 +22,43 @@ public class ProductoController {
     @Autowired
     private ProductoService productoService;
 
-    @GetMapping("/productos") //Pàgina inicial dels gossos
+    @GetMapping("/productos")
     public String homeProductos(Model model) {
 
-        //llistarGossos() retorna el llistat d'objectes gos guardats en la taula gossos de la BBDD    
         model.addAttribute("productos", productoService.listProductos());
 
-        return "mainProductos"; //Retorna la pàgina iniciEnviarDades
+        return "mainProductos";
+    }
+
+    @GetMapping("formProductos")
+    public String formProductos(Model model) {
+
+        return "formProductos";
+    }
+
+    @PostMapping("/saveProduct")
+    public String saveProducto(Producto producto) {
+
+        productoService.saveProduct(producto);
+
+        return "redirect:/productos";
+    }
+
+    @GetMapping("/modify/{codigoNacional}")
+    public String modifyProducto(Producto producto, Model model) {
+
+        model.addAttribute("producto", productoService.searchProduct(producto));
+        model.getAttribute("selectedProducto");
+
+        return "formProductos";
+    }
+
+    @GetMapping("/delete/{codigoNacional}")
+    public String deleteProducto(Producto producto) {
+
+        productoService.deleteProduct(producto);
+
+        return "redirect:/mainProductos";
     }
 
 }
