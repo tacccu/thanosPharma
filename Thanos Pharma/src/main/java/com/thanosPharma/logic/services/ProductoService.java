@@ -17,32 +17,32 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class ProductoService implements ProductoServiceInterface {
-    
+
     @Autowired
     private ProductoDAO productoDAO;
-    
+
     @Override
     @Transactional(readOnly = true)
     public List<Producto> listProductos() {
         return (List<Producto>) productoDAO.findAll();
     }
-    
+
     @Override
     @Transactional
     public void saveProduct(Producto producto) {
         productoDAO.save(producto);
     }
-    
+
     @Override
     @Transactional
     public void deleteProduct(Producto producto) {
         productoDAO.delete(producto);
     }
-    
+
     @Override
     @Transactional(readOnly = true)
     public Producto searchProduct(Producto producto) {
         return productoDAO.findById(producto.getCodigoNacional()).orElse(null);
     }
-    
+
 }

@@ -16,19 +16,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
         <form th:action="@{/saveProduct}" method="post" th:object="${producto}">
 
-            <input type="hidden" name="idProducto" th:field="*{codigoNacional}">
+            <label for="codigoNacional">Código nacional:</label>
+            <input type="text" name="codigoNacional" th:field="*{codigoNacional}">
 
             <label for="receta">Receta:</label>
             <input type="text" name="receta" th:field="*{receta}"/>
-            <label for="receta">Stock:</label>
+
+            <label for="stock">Stock:</label>
             <input type="text" name="stock" th:field="*{stock}"/>
-            <label for="receta">Nombre:</label>
+
+            <label for="nombreProducto">Nombre:</label>
             <input type="text" name="nombreProducto" th:field="*{nombreProducto}"/>
-            <label for="receta">Descripción:</label>
+
+            <label for="descripcion">Descripción:</label>
             <input type="text" name="descripcion" th:field="*{descripcion}"/>
-            <label for="receta">Unidades Embalaje:</label>
+
+            <label for="unidadesEmbalaje">Unidades Embalaje:</label>
             <input type="text" name="unidadesEmbalaje" th:field="*{unidadesEmbalaje}"/>
-            <label for="receta">Dosis:</label>
+
+            <label for="dosis">Dosis:</label>
             <input type="text" name="dosis" th:field="*{dosis}"/>
 
             <input type="submit" name="enviar" value="Enviar datos"/>
