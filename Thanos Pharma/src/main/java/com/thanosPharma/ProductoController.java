@@ -45,18 +45,8 @@ public class ProductoController {
         return "redirect:/productos";
     }
 
-    /*@GetMapping("/modify/{codigoNacional}")
-    public String modifyProducto(Producto producto, Model model) {
-
-        model.addAttribute("producto", productoService.searchProduct(producto));
-
-        return "formProductos";
-    }*/
     @GetMapping("/modify/{codigoNacional}")
-    public String modifyProducto(@PathVariable int codigoNacional, Model model) {
-
-        Producto producto = new Producto();
-        producto.setCodigoNacional(codigoNacional);
+    public String modifyProducto(Producto producto, Model model) {
 
         model.addAttribute("producto", productoService.searchProduct(producto));
 
@@ -68,7 +58,7 @@ public class ProductoController {
 
         productoService.deleteProduct(producto);
 
-        return "redirect:/mainProductos";
+        return "redirect:/productos";
     }
 
 }

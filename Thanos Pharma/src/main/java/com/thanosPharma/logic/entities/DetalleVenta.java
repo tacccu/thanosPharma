@@ -19,14 +19,13 @@ public class DetalleVenta implements Serializable {
 
     private static final long serialVersionUID = 1l;
 
-    @ManyToOne
-    @JoinColumn(name = "ordenes_de_venta_id_venta")
+    @Id
     private OrdenVenta ordenVenta;
 
-    @OneToOne
-    @JoinColumn(name = "productos_codigo_nacional")
     private Producto producto;
-
     private int cantidad;
+    private double precioUnitario;
+    private int iva;
     private double totalProducto;
+
 }

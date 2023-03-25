@@ -11,15 +11,25 @@
         <!-- Custom styles for this template -->
         <link href="/css/general.css" rel="stylesheet" type="text/css">
         <script th:inline="javascript">
-            function modifyProducto() {
-                var checkbox = document.querySelector('input[name="selectedProducto"]:checked');
-                if (checkbox) {
-                    var codigoNacional = checkbox.value;
-                    console.log(codigoNacional);
+            function modifyOrDeleteProducto(action) {
 
-                    window.location.href = '/modify/' + codigoNacional;
+                var checkbox = document.querySelector('input[name="selectedProducto"]:checked');
+
+                if (checkbox) {
+
+                    var codigoNacional = checkbox.value;
+
+                    switch (action) {
+                        case 'modify':
+                            window.location.href = '/modify/' + codigoNacional;
+                            break;
+                        case 'delete':
+                            window.location.href = '/delete/' + codigoNacional;
+                            break;
+                    }
                 } else {
-                    alert('Por favor, seleccione un producto para modificar.');
+
+                    alert('Por favor, seleccione un producto.');
                 }
             }
         </script> 
@@ -30,11 +40,9 @@
                 <div class="container">
                     <h1 th:text="#{productos.title}"/>
                     <div id="topListaMainCliente">
-                        <button type="button" class="btn btn-primary" id="btnAdd" onclick="location.href = '/formProductos'" th:text="#{productos.btn.add}"/>
-                        <!-- esto funciona -->
-                        <!-- <button type="button" class="btn btn-primary" id="btnModificar" onclick="location.href = '/modify/' + document.getElementById('checkboxProducto').value" th:text="#{productos.btn.modify}"/> -->
-                        <button type="button" class="btn btn-primary" id="btnModify" onclick="modifyProducto()" th:text="#{productos.btn.modify}"/>
-                        <button type="submit" class="btn btn-primary" th:text="#{productos.btn.delete}"/>
+                        <button type="button" class="btn btn-primary" onclick="location.href = '/formProductos'" th:text="#{productos.btn.add}"/>
+                        <button type="button" class="btn btn-primary" onclick="modifyOrDeleteProducto('modify')" th:text="#{productos.btn.modify}"/>
+                        <button type="button" class="btn btn-primary" onclick="modifyOrDeleteProducto('delete')" th:text="#{productos.btn.delete}"/>
                         <div class="col-xs-2">
                             <input type="search" class="form-control rounded" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon" />
                             <button type="button" class="btn btn-outline-primary" th:text="#{nomCom.btn.search}"/>
@@ -52,6 +60,8 @@
                             <th scope="col" th:text="#{productos.col.description}"/>
                             <th scope="col" th:text="#{productos.col.quantityPerPackage}"/>
                             <th scope="col" th:text="#{productos.col.dose}"/>
+                            <th scope="col" th:text="#{productos.col.price}"/>
+                            <th scope="col" th:text="#{productos.col.iva}"/>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,6 +74,8 @@
                             <td th:text="${producto.descripcion}"/>
                             <td th:text="${producto.unidadesEmbalaje}"/>
                             <td th:text="${producto.dosis}"/>
+                            <td th:text="${producto.precio}"/>
+                            <td th:text="${producto.iva}"/>
                         </tr>
                     </tbody>
                 </table>

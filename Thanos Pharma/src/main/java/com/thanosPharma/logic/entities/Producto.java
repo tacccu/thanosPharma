@@ -23,7 +23,6 @@ public class Producto implements Serializable {
     private static final long serialVersionUID = 1l;
 
     @Id
-    @GeneratedValue
     private int codigoNacional;
 
     private boolean receta;
@@ -32,6 +31,6 @@ public class Producto implements Serializable {
     private String descripcion;
     private int unidadesEmbalaje;
     private String dosis;
-    private int iva;
     private float precio;
+    private int iva;
 }
