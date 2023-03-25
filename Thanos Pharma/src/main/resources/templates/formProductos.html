@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Formulario Productos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>Añadir Producto</h2>
+
+        <a th:href="@{/productos}">Inici</a>
+
+        <form th:action="@{/saveProduct}" method="post" th:object="${producto}">
+
+            <label for="codigoNacional">Código nacional:</label>
+            <input type="text" name="codigoNacional" th:field="*{codigoNacional}">
+
+            <label for="receta">Receta:</label>
+            <input type="text" name="receta" th:field="*{receta}"/>
+
+            <label for="stock">Stock:</label>
+            <input type="text" name="stock" th:field="*{stock}"/>
+
+            <label for="nombreProducto">Nombre:</label>
+            <input type="text" name="nombreProducto" th:field="*{nombreProducto}"/>
+
+            <label for="descripcion">Descripción:</label>
+            <input type="text" name="descripcion" th:field="*{descripcion}"/>
+
+            <label for="unidadesEmbalaje">Unidades Embalaje:</label>
+            <input type="text" name="unidadesEmbalaje" th:field="*{unidadesEmbalaje}"/>
+
+            <label for="dosis">Dosis:</label>
+            <input type="text" name="dosis" th:field="*{dosis}"/>
+
+            <label for="precio">Precio:</label>
+            <input type="text" name="precio" th:field="*{precio}"/>
+
+            <label for="iva">IVA:</label>
+            <input type="text" name="iva" th:field="*{iva}"/>
+
+            <input type="submit" name="enviar" value="Enviar datos"/>
+        </form>
+    </body>
+</html>

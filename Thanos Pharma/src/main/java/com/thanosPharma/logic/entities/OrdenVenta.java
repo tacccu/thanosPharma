@@ -4,13 +4,10 @@
  */
 package com.thanosPharma.logic.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 import lombok.Data;
 
 /**
@@ -34,5 +31,8 @@ public class OrdenVenta implements Serializable {
     double precioTotal;
     String estado;
     Date fechaVenta;
+
+    @OneToMany//Verificar primero el tipo de cascade(cascade = {CascadeType.ALL})
+    private List<DetalleVenta> detallesVentaList;
 
 }
