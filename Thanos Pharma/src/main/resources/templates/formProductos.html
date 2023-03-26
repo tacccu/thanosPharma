@@ -12,7 +12,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <body>
         <h2>Añadir Producto</h2>
 
-        <a th:href="@{/productos}">Inici</a>
+        <a th:href="@{/productos}">Volver</a>
+        <p/>
 
         <form th:action="@{/saveProduct}" method="post" th:object="${producto}">
 
@@ -42,7 +43,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
             <label for="iva">IVA:</label>
             <input type="text" name="iva" th:field="*{iva}"/>
-
+            <p/>
             <input type="submit" name="enviar" value="Enviar datos"/>
         </form>
     </body>
