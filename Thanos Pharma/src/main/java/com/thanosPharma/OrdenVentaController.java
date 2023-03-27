@@ -4,9 +4,9 @@
  */
 package com.thanosPharma;
 
+import com.thanosPharma.logic.services.OrdenVentaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import com.thanosPharma.logic.services.OrdenVentaServiceInterface;
 
 /**
  *
@@ -16,6 +16,6 @@ import com.thanosPharma.logic.services.OrdenVentaServiceInterface;
 public class OrdenVentaController {
 
     @Autowired
-    OrdenVentaServiceInterface ordenVentaService;
+    OrdenVentaService ordenVentaService;
 
 }

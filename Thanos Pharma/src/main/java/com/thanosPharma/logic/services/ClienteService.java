@@ -4,8 +4,10 @@
  */
 package com.thanosPharma.logic.services;
 
+import com.thanosPharma.dao.ClienteDAO;
 import com.thanosPharma.logic.entities.Cliente;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,6 +16,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ClienteService implements ClienteServiceInterface {
+
+    @Autowired
+    private ClienteDAO clienteDAO;
 
     @Override
     public void guardar(Cliente cliente) {

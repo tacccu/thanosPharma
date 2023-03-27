@@ -1,38 +1,35 @@
 <!doctype html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
-        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-        <meta name="generator" content="Hugo 0.108.0">
         <title>Modificar Usuario</title>
         <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/grid/">
         <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <!-- Custom styles for this template -->
-        <link href="/css/general.css" rel="stylesheet">
+        <link href="/css/general.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-
         <main>
             <div class="container" id="containerFormModifuser">
-                <h1>Mi cuenta</h1>
+                <h1 th:text="#{modifUser.titol}"></h1>
                 <form>
                     <div class="form-group">
-                        <label for="nombreModifUs">Nombre:</label>
+                        <label for="nombreModifUs" th:text="#{nomCom.lab.nom}"></label>
                         <input type="nombre" class="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Introduzca el nombre">
                     </div>
                     <div class="form-group">
-                        <label for="emailModifUs">Email:</label>
+                        <label for="emailModifUs" th:text="#{nomCom.lab.email}"></label>
                         <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Introduzca el mail">
                     </div>
                     <div class="form-group">
-                        <label for="telefonoModifUs">Teléfono:</label>
+                        <label for="telefonoModifUs" th:text="#{nomCom.lab.telef}"></label>
                         <input type="telefono" class="form-control" id="telefono" aria-describedby="emailHelp" placeholder="Introduzca el teléfono">
                     </div>
                     <br><br>
-                    <button type="submit" class="btn btn-primary">Modificar datos</button>
+                    <button type="submit" class="btn btn-primary" th:text="#{nomCom.but.modificar}"></button>
                 </form>
         </main>
     </body>
