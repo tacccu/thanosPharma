@@ -6,6 +6,8 @@ package com.thanosPharma;
 
 import com.thanosPharma.logic.services.UsuarioService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  *
@@ -15,5 +17,10 @@ import org.springframework.stereotype.Controller;
 public class UsuarioController {
 
     private UsuarioService usuarioService;
+
+    @GetMapping("/modifUsuario")
+    public String showModifUsuario(Model model) {
+        return "modifUsuario";
+    }
 
 }
