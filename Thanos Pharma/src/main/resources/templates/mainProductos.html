@@ -32,6 +32,19 @@
                     alert('Por favor, seleccione un producto.');
                 }
             }
+
+            function seleccionarUnicoCheckbox(currentCheckbox) {
+
+                var checkboxes = document.getElementsByName('selectedProducto');
+
+                for (var i = 0; i < checkboxes.length; i++) {
+
+                    if (checkboxes[i] !== currentCheckbox) {
+
+                        checkboxes[i].checked = false;
+                    }
+                }
+            }
         </script> 
     </head>
     <body>
@@ -66,7 +79,9 @@
                     </thead>
                     <tbody>
                         <tr th:each="producto : ${productos}">
-                            <td><input type="checkbox" id="checkboxProducto" name="selectedProducto" th:value="${producto.codigoNacional}"/>
+                            <td>
+                                <input type="checkbox" id="checkboxProducto" name="selectedProducto" th:value="${producto.codigoNacional}" onclick="seleccionarUnicoCheckbox(this)"/>
+                            </td>    
                             <td th:text="${producto.codigoNacional}"/>
                             <td th:text="${producto.receta}"/>
                             <td th:text="${producto.stock}"/>
@@ -81,5 +96,6 @@
                 </table>
             </div>
         </main>
+        <div th:include="~{menu :: sidebar}"></div>
     </body>
 </html>
