@@ -21,13 +21,13 @@
                         <button type="button" class="btn btn-primary" onclick="location.href = '/formProductos'" th:text="#{productos.btn.add}"/>
                         <button type="button" class="btn btn-primary" onclick="modifyOrDeleteProducto('modify')" th:text="#{productos.btn.modify}"/>
                         <button type="button" class="btn btn-primary" onclick="modifyOrDeleteProducto('delete')" th:text="#{productos.btn.delete}"/>
+                        <p>
                         <div class="col-xs-2">
-                            <input type="search" class="form-control rounded" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon" />
-                            <button type="button" class="btn btn-outline-primary" th:text="#{nomCom.btn.search}"/>
+                            <input type="search" class="form-control rounded" id="cuadro-busqueda" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon" onkeyup="buscar()" />
                         </div>
                     </div>
                 </div>
-                <table class="table">
+                <table class="table" id="tabla-productos">
                     <thead>
                         <tr>
                             <th scope="col"/>
@@ -42,6 +42,7 @@
                             <th scope="col" th:text="#{productos.col.iva}"/>
                         </tr>
                     </thead>
+                    <p>
                     <tbody>
                         <tr th:each="producto : ${productos}">
                             <td>
