@@ -15,8 +15,9 @@ public interface ClienteServiceInterface {
 
     public List<Cliente> listClientes();
 
-    public void guardar(Cliente cliente);
+    public void saveClientes(Cliente cliente);
 
-    public void borrar(Cliente cliente);
+    public void deleteClientes(Cliente cliente);
 
+    public Cliente searchClientes(Cliente cliente);
 }

@@ -22,6 +22,7 @@ public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_cliente;
+    
     private String TSE;
     private String nombre;
     private String apellido;
