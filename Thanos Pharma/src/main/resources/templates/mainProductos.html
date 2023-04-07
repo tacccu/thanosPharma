@@ -10,42 +10,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <!-- Custom styles for this template -->
         <link href="/css/general.css" rel="stylesheet" type="text/css">
-        <script th:inline="javascript">
-            function modifyOrDeleteProducto(action) {
-
-                var checkbox = document.querySelector('input[name="selectedProducto"]:checked');
-
-                if (checkbox) {
-
-                    var codigoNacional = checkbox.value;
-
-                    switch (action) {
-                        case 'modify':
-                            window.location.href = '/modify/' + codigoNacional;
-                            break;
-                        case 'delete':
-                            window.location.href = '/delete/' + codigoNacional;
-                            break;
-                    }
-                } else {
-
-                    alert('Por favor, seleccione un producto.');
-                }
-            }
-
-            function seleccionarUnicoCheckbox(currentCheckbox) {
-
-                var checkboxes = document.getElementsByName('selectedProducto');
-
-                for (var i = 0; i < checkboxes.length; i++) {
-
-                    if (checkboxes[i] !== currentCheckbox) {
-
-                        checkboxes[i].checked = false;
-                    }
-                }
-            }
-        </script> 
+        <script src="../model/functions.js"></script> 
     </head>
     <body>
         <main>
@@ -56,13 +21,13 @@
                         <button type="button" class="btn btn-primary" onclick="location.href = '/formProductos'" th:text="#{productos.btn.add}"/>
                         <button type="button" class="btn btn-primary" onclick="modifyOrDeleteProducto('modify')" th:text="#{productos.btn.modify}"/>
                         <button type="button" class="btn btn-primary" onclick="modifyOrDeleteProducto('delete')" th:text="#{productos.btn.delete}"/>
+                        <p>
                         <div class="col-xs-2">
-                            <input type="search" class="form-control rounded" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon" />
-                            <button type="button" class="btn btn-outline-primary" th:text="#{nomCom.btn.search}"/>
+                            <input type="search" class="form-control rounded" id="cuadro-busqueda" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon" onkeyup="buscar()" />
                         </div>
                     </div>
                 </div>
-                <table class="table">
+                <table class="table" id="tabla-productos">
                     <thead>
                         <tr>
                             <th scope="col"/>
@@ -77,10 +42,11 @@
                             <th scope="col" th:text="#{productos.col.iva}"/>
                         </tr>
                     </thead>
+                    <p>
                     <tbody>
                         <tr th:each="producto : ${productos}">
                             <td>
-                                <input type="checkbox" id="checkboxProducto" name="selectedProducto" th:value="${producto.codigoNacional}" onclick="seleccionarUnicoCheckbox(this)"/>
+                                <input type="checkbox" id="checkboxProducto" name="selectedCheckbox" th:value="${producto.codigoNacional}" onclick="seleccionarUnicoCheckbox(this)"/>
                             </td>    
                             <td th:text="${producto.codigoNacional}"/>
                             <td th:text="${producto.receta}"/>
