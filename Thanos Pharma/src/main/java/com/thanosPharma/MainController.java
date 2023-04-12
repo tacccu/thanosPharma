@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class MainController {
-
+    
     @GetMapping("/")
-    public String startTest(Model model) {
+    public String showlogin(Model model){
         return "login";
     }
-
+    
     @GetMapping("/menu")
     public String showMenu(Model model) {
         return "menu";
