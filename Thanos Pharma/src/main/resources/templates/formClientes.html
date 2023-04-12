@@ -19,13 +19,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <body>
         <h2>Añadir Cliente</h2>
 
-        <a th:href="@{/mainClientes}">Volver</a>
+        <a th:href="@{/clientes}">Volver</a>
         <p/>
         <div class="container" id="containerFormGeneral"> 
             <form th:action="@{/saveClientes}" method="post" th:object="${cliente}">
                 <div class="form-group">
-                    <label for="TSE" th:text="#{forClient.tse}"/>
-                    <input type="text" class="form-control" name="TSE" th:field="*{TSE}" th:placeholder="#{forClient.ph.tse}">
+                    <label for="tse" th:text="#{forClient.tse}"/>
+                    <input type="text" class="form-control" name="tse" th:field="*{tse}" th:placeholder="#{forClient.ph.tse}">
                 </div>
                 <div class="form-group">
                     <label for="nombre" th:text="#{forClient.name}"/>
@@ -54,7 +54,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
                 <div class="form-group">
                     <label for="cp" th:text="#{forClient.postal}"/>
-                    <input type="text" class="form-control" name="cp" th:field="*{cp}" th:placeholder="#{forClient.ph.postal}">
+                    <input type="text" class="form-control" name="codigo_postal" th:field="*{codigo_postal}" th:placeholder="#{forClient.ph.postal}">
                 </div>
 
                 <div class="form-group">

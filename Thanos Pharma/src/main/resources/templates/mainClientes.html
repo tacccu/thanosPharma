@@ -28,7 +28,7 @@
             <div class="container" id="listaMainClientes">
                 <div class="container">
                     <div id="topListaMainCliente">
-                        <button type="submit" class="btn btn-primary" onclick="window.location.href='formClientes';">Añadir cliente</button>
+                        <button type="submit" class="btn btn-primary" onclick="window.location.href = 'formClientes';">Añadir cliente</button>
                         <button type="submit" class="btn btn-primary">Eliminar cliente</button>
                         <button type="submit" class="btn btn-primary">Visualizar cliente</button>
                         <div class="col-xs-2">
@@ -62,26 +62,27 @@
                     <tbody>
                         <tr th:each="cliente : ${clientes}">
                             <td>
-                                <input type="checkbox" id="checkboxClientes" name="selectedProducto" th:value="${mainClientes.col.id}" onclick="seleccionarUnicoCheckbox(this)"/>
+                                <input type="checkbox" id="checkboxClientes" name="selectedProducto" th:value="${id_cliente}" onclick="seleccionarUnicoCheckbox(this)"/>
                             </td>    
-                            <td th:text="${mainClientes.col.tse}"/>
-                            <td th:text="${mainClientes.col.name}"/>
-                            <td th:text="${mainClientes.col.surname}"/>
-                            <td th:text="${mainClientes.col.location}"/>
-                            <td th:text="${mainClientes.col.town}"/>
-                            <td th:text="${mainClientes.col.email}"/>
-                            <td th:text="${mainClientes.col.postal}"/>
-                            <td th:text="${mainClientes.col.phone}"/>
+                            <td th:text="${cliente.id_cliente}"/>
+                            <td th:text="${cliente.tse}"/>
+                            <td th:text="${cliente.nombre}"/>
+                            <td th:text="${cliente.apellido}"/>
+                            <td th:text="${cliente.direccion}"/>
+                            <td th:text="${cliente.municipio}"/>
+                            <td th:text="${cliente.email}"/>
+                            <td th:text="${cliente.codigo_postal}"/>
+                            <td th:text="${cliente.telefono}"/>
                         </tr>
                     </tbody>
                 </table>
             </div>
-<!--            <span th:text="#{lang.change}"></span>:
-            <select id="locales">
-                <option value=""></option>
-                <option value="us" th:text="#{nomCom.lab.us}"></option>
-                <option value="es" th:text="#{nomCom.lab.es}"></option>
-            </select>-->
+            <!--            <span th:text="#{lang.change}"></span>:
+                        <select id="locales">
+                            <option value=""></option>
+                            <option value="us" th:text="#{nomCom.lab.us}"></option>
+                            <option value="es" th:text="#{nomCom.lab.es}"></option>
+                        </select>-->
         </main>
         <div th:include="~{menu :: sidebar}"></div>
     </body>
