@@ -44,40 +44,45 @@
                         </div>
                     </div>
                 </div>
-                <table class="table">
+                <table class="table" id="tabla-clientes">
                     <thead>
                         <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Apellido</th>
-                            <th scope="col">Dirección</th>
-                            <th scope="col">Municipio</th>
-                            <th scope="col">CP</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Teléfono</th>
-                            <th scope="col">TSE</th>
+                            <th scope="col">
+                            <th scope="col" th:text="#{forClient.id}"/>
+                            <th scope="col" th:text="#{forClient.tse}"/>
+                            <th scope="col" th:text="#{forClient.name}"/>
+                            <th scope="col" th:text="#{forClient.surname}"/>
+                            <th scope="col" th:text="#{forClient.location}"/>
+                            <th scope="col" th:text="#{forClient.email}"/>
+                            <th scope="col" th:text="#{forClient.postal}"/>
+                            <th scope="col" th:text="#{forClient.phone}"/>
                         </tr>
                     </thead>
+                    <p>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Vaquilla, Portal 4 piso 3º4</td>
-                            <td>Terrassa</td>
-                            <td>08224</td>
-                            <td>motto@email.com</td>
-                            <td>8541842</td>
+                        <tr th:each="cliente : ${clientes}">
+                            <td>
+                                <input type="checkbox" id="checkboxClientes" name="selectedProducto" th:value="${mainClientes.col.id}" onclick="seleccionarUnicoCheckbox(this)"/>
+                            </td>    
+                            <td th:text="${mainClientes.col.tse}"/>
+                            <td th:text="${mainClientes.col.name}"/>
+                            <td th:text="${mainClientes.col.surname}"/>
+                            <td th:text="${mainClientes.col.location}"/>
+                            <td th:text="${mainClientes.col.town}"/>
+                            <td th:text="${mainClientes.col.email}"/>
+                            <td th:text="${mainClientes.col.postal}"/>
+                            <td th:text="${mainClientes.col.phone}"/>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <span th:text="#{lang.change}"></span>:
+<!--            <span th:text="#{lang.change}"></span>:
             <select id="locales">
                 <option value=""></option>
                 <option value="us" th:text="#{nomCom.lab.us}"></option>
                 <option value="es" th:text="#{nomCom.lab.es}"></option>
-            </select>
+            </select>-->
         </main>
+        <div th:include="~{menu :: sidebar}"></div>
     </body>
 </html>

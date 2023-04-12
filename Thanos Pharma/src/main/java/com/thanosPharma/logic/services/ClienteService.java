@@ -28,11 +28,13 @@ public class ClienteService implements ClienteServiceInterface {
     }
 
     @Override
+    @Transactional
     public void saveClientes(Cliente cliente) {
         clienteDAO.save(cliente);
     }
 
     @Override
+    @Transactional 
     public void deleteClientes(Cliente cliente) {
         clienteDAO.delete(cliente);
     }

@@ -22,11 +22,11 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
-    @GetMapping("/mainClientes")
-    public String showMainClientes(Model model) {
-        
-//        model.addAttribute("mainClientes", clienteService.listClientes());
-        
+    @GetMapping("/clientes")
+    public String homeClientes(Model model) {
+
+        model.addAttribute("clientes", clienteService.listClientes());
+
         return "mainClientes";
     }
 
@@ -43,4 +43,19 @@ public class ClienteController {
         return "redirect:/mainClientes";
     }
 
+    @GetMapping("/modify/{id_cliente}")
+    public String modifyCliente(Cliente cliente, Model model) {
+
+        model.addAttribute("cliente", clienteService.searchClientes(cliente));
+
+        return "formClientes";
+    }
+
+    @GetMapping("/delete/{id_cliente}")
+    public String deleteCliente(Cliente cliente) {
+
+        clienteService.deleteClientes(cliente);
+
+        return "redirect:/mainClientes";
+    }
 }
