@@ -41,22 +41,33 @@ function seleccionarUnicoCheckbox(currentCheckbox) {
 }
 
 function buscar() {
+    
     var valorBuscado = document.getElementById("cuadro-busqueda").value.toLowerCase();
     var tablaProductos = document.getElementById("tabla-productos");
     var filas = tablaProductos.getElementsByTagName("tr");
+    
     for (var i = 0; i < filas.length; i++) {
+        
         var celdas = filas[i].getElementsByTagName("td");
         var filaVisible = false;
+        
         for (var j = 0; j < celdas.length; j++) {
+            
             var contenidoCelda = celdas[j].textContent.toLowerCase();
+            
             if (contenidoCelda.indexOf(valorBuscado) > -1) {
+                
                 filaVisible = true;
                 break;
             }
         }
+        
         if (filaVisible) {
+            
             filas[i].style.display = "";
+            
         } else {
+            
             filas[i].style.display = "none";
         }
     }
