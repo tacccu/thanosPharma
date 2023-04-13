@@ -22,12 +22,13 @@ public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_cliente;
-    private String TSE;
+    
+    private String tse;
     private String nombre;
     private String apellido;
     private String direccion;
     private String municipio;
     private String email;
-    private int cp;
+    private int codigo_postal;
     private int telefono;
 }

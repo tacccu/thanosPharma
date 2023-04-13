@@ -9,6 +9,7 @@ import com.thanosPharma.logic.entities.Cliente;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -21,18 +22,26 @@ public class ClienteService implements ClienteServiceInterface {
     private ClienteDAO clienteDAO;
 
     @Override
-    public void guardar(Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void borrar(Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
+    @Transactional(readOnly = true)
     public List<Cliente> listClientes() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return (List<Cliente>) clienteDAO.findAll();
     }
 
+    @Override
+    @Transactional
+    public void saveClientes(Cliente cliente) {
+        clienteDAO.save(cliente);
+    }
+
+    @Override
+    @Transactional 
+    public void deleteClientes(Cliente cliente) {
+        clienteDAO.delete(cliente);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Cliente searchClientes(Cliente cliente) {
+        return clienteDAO.findById(cliente.getId_cliente()).orElse(null);
+    }
 }
