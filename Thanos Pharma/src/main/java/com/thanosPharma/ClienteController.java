@@ -43,7 +43,7 @@ public class ClienteController {
         return "redirect:/clientes";
     }
 
-    @GetMapping("/modify/{id_cliente}")
+    @GetMapping("/modifyCliente/{id_cliente}")
     public String modifyCliente(Cliente cliente, Model model) {
 
         model.addAttribute("cliente", clienteService.searchClientes(cliente));
@@ -51,7 +51,7 @@ public class ClienteController {
         return "formClientes";
     }
 
-    @GetMapping("/delete/{id_cliente}")
+    @GetMapping("/deleteCliente/{id_cliente}")
     public String deleteCliente(Cliente cliente) {
 
         clienteService.deleteClientes(cliente);
