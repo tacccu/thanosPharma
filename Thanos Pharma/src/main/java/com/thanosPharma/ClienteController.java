@@ -40,7 +40,7 @@ public class ClienteController {
 
         clienteService.saveClientes(cliente);
 
-        return "redirect:/mainClientes";
+        return "redirect:/clientes";
     }
 
     @GetMapping("/modify/{id_cliente}")
@@ -56,6 +56,6 @@ public class ClienteController {
 
         clienteService.deleteClientes(cliente);
 
-        return "redirect:/mainClientes";
+        return "redirect:/clientes";
     }
 }

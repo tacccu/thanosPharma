@@ -40,6 +40,19 @@ function seleccionarUnicoCheckbox(currentCheckbox) {
     }
 }
 
+function seleccionarUnicoCheckboxCliente(currentCheckbox) {
+
+    var checkboxes = document.getElementsByName('selectedCliente');
+
+    for (var i = 0; i < checkboxes.length; i++) {
+
+        if (checkboxes[i] !== currentCheckbox) {
+
+            checkboxes[i].checked = false;
+        }
+    }
+}
+
 function buscar() {
     var valorBuscado = document.getElementById("cuadro-busqueda").value.toLowerCase();
     var tablaProductos = document.getElementById("tabla-productos");
@@ -94,11 +107,11 @@ function modifyOrDeleteCliente (action) {
 
         switch (action) {
             case 'modify':
-                window.location.href = '/modify/' + id_cliente;
+                window.location.href = '/modifyCliente/' + id_cliente;
                 break;
             case 'delete':
                 if (confirm("¿Estás seguro de que quieres eliminar este cliente?")) {
-                    window.location.href = '/delete/' + id_cliente;
+                    window.location.href = '/deleteCliente/' + id_cliente;
                 }
                 break;
         }
