@@ -5,6 +5,7 @@
 package com.thanosPharma.dao;
 
 import com.thanosPharma.logic.entities.Usuario;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -12,5 +13,7 @@ import org.springframework.data.repository.CrudRepository;
  * @author Kiwi
  */
 public interface UsuarioDAO extends CrudRepository<Usuario, Long> {
-
+    
+    Usuario findByUsername(String username);
+    
 }
