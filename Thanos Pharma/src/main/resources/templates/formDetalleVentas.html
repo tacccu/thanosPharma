@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Formulario de detalle de ventas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>Añadir Orden de venta</h2>
+
+        <a th:href="@{/detalleVentas}">Volver</a>
+        <p/>
+
+        <form th:action="@{/saveDetalleVenta}" method="post" th:object="${detalleVenta}">
+
+            <label for="ordenVenta">Orden de venta:</label>
+            <input type="text" name="ordenVenta" th:field="*{ordenVenta}">
+
+            <label for="producto">Producto:</label>
+            <input type="text" name="producto" th:field="*{producto}"/>
+
+            <label for="cantidad">Cantidad:</label>
+            <input type="text" name="cantidad" th:field="*{cantidad}"/>
+
+            <label for="precioUnitario">Precio por unidad:</label>
+            <input type="text" name="precioUnitario" th:field="*{precioUnitario}"/>
+
+            <label for="iva">IVA:</label>
+            <input type="text" name="iva" th:field="*{iva}"/>
+
+            <label for="totalProductos">Total de productos:</label>
+            <input type="text" name="totalProductos" th:field="*{TotalProductos}"/>
+            <p/>
+            <input type="submit" name="enviar" value="Enviar datos"/>
+        </form>
+    </body>
+</html>

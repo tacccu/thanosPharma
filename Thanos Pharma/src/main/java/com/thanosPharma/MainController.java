@@ -7,7 +7,6 @@ package com.thanosPharma;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.servlet.view.RedirectView;
 
 /**
  *
@@ -17,8 +16,8 @@ import org.springframework.web.servlet.view.RedirectView;
 public class MainController {
     
     @GetMapping("/")
-    public RedirectView showlogin(Model model){
-        return new RedirectView("/productos");
+    public String showlogin(Model model){
+        return "redirect: /productos";
     }
    
 

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Formulario de Orden de ventas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>Añadir Orden de venta</h2>
+
+        <a th:href="@{/productos}">Volver</a>
+        <p/>
+
+        <form th:action="@{/saveSale}" method="post" th:object="${venta}">
+
+            <label for="codigoVenta">Codigo de venta:</label>
+            <input type="text" name="codigoVenta" th:field="*{codigoVenta}">
+
+            <label for="usuario">Usuario:</label>
+            <input type="text" name="usuario" th:field="*{usuario}"/>
+
+            <label for="cliente">Cliente:</label>
+            <input type="text" name="cliente" th:field="*{cliente}"/>
+
+            <label for="precioTotal">Precio total:</label>
+            <input type="text" name="precioTotal" th:field="*{precioTotal}"/>
+
+            <label for="estado">Estado:</label>
+            <input type="text" name="estado" th:field="*{estado}"/>
+
+            <label for="fechaVenta">Fecha de venta:</label>
+            <input type="text" name="fechaVenta" th:field="*{fechaVenta}"/>
+
+            <label for="dosis">Dosis:</label>
+            <input type="text" name="dosis" th:field="*{dosis}"/>
+
+            <label for="precio">Precio:</label>
+            <input type="text" name="precio" th:field="*{precio}"/>
+
+            <label for="detalleVentaList">Detalle de venta:</label>
+            <input type="text" name="detalleVentaList" th:field="*{detalleVentaList}"/>
+            <p/>
+            <input type="submit" name="enviar" value="Enviar datos"/>
+        </form>
+    </body>
+</html>
