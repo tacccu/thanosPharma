@@ -44,7 +44,7 @@ public class ProductoController {
         return "redirect:/productos";
     }
 
-    @GetMapping("/modify/{codigoNacional}")
+    @GetMapping("/modifyProducto/{codigoNacional}")
     public String modifyProducto(Producto producto, Model model) {
 
         model.addAttribute("producto", productoService.searchProduct(producto));
@@ -52,7 +52,7 @@ public class ProductoController {
         return "formProductos";
     }
 
-    @GetMapping("/delete/{codigoNacional}")
+    @GetMapping("/deleteProducto/{codigoNacional}")
     public String deleteProducto(Producto producto) {
 
         productoService.deleteProduct(producto);

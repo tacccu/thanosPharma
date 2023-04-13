@@ -13,11 +13,11 @@ function modifyOrDeleteProducto(action) {
 
         switch (action) {
             case 'modify':
-                window.location.href = '/modify/' + codigoNacional;
+                window.location.href = '/modifyProducto/' + codigoNacional;
                 break;
             case 'delete':
                 if (confirm("¿Estás seguro de que quieres eliminar este registro?")) {
-                    window.location.href = '/delete/' + codigoNacional;
+                    window.location.href = '/deleteProducto/' + codigoNacional;
                 }
                 break;
         }
@@ -41,33 +41,33 @@ function seleccionarUnicoCheckbox(currentCheckbox) {
 }
 
 function buscar() {
-    
+
     var valorBuscado = document.getElementById("cuadro-busqueda").value.toLowerCase();
     var tablaProductos = document.getElementById("tabla-productos");
     var filas = tablaProductos.getElementsByTagName("tr");
-    
-    for (var i = 0; i < filas.length; i++) {
-        
+
+    for (var i = 1; i < filas.length; i++) {
+
         var celdas = filas[i].getElementsByTagName("td");
         var filaVisible = false;
-        
+
         for (var j = 0; j < celdas.length; j++) {
-            
+
             var contenidoCelda = celdas[j].textContent.toLowerCase();
-            
+
             if (contenidoCelda.indexOf(valorBuscado) > -1) {
-                
+
                 filaVisible = true;
                 break;
             }
         }
-        
+
         if (filaVisible) {
-            
+
             filas[i].style.display = "";
-            
+
         } else {
-            
+
             filas[i].style.display = "none";
         }
     }
@@ -77,7 +77,7 @@ function buscarCliente() {
     var valorBuscado = document.getElementById("cuadro-busqueda").value.toLowerCase();
     var tablaClientes = document.getElementById("tabla-clientes");
     var filas = tablaClientes.getElementsByTagName("tr");
-    for (var i = 0; i < filas.length; i++) {
+    for (var i = 1; i < filas.length; i++) {
         var celdas = filas[i].getElementsByTagName("td");
         var filaVisible = false;
         for (var j = 0; j < celdas.length; j++) {
@@ -95,7 +95,7 @@ function buscarCliente() {
     }
 }
 
-function modifyOrDeleteCliente (action) {
+function modifyOrDeleteCliente(action) {
 
     var checkbox = document.querySelector('input[name="selectedCliente"]:checked');
 
