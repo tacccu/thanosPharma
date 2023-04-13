@@ -82,6 +82,10 @@
     display: inline;
 }
 
+.search-container {
+   margin-top: 10px; 
+}
+
 
 /*          CSS GENERALES      */
 body {
@@ -91,3 +95,4 @@ body {
 .form-group input {
     background-color: #f3f3f3;
 }
+
