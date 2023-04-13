@@ -3,11 +3,17 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
-<html>
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${#locale.language}">
     <head>
         <title>Formulario Productos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/grid/">
+        <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <!-- Custom styles for this template -->
+        <link href="/css/general.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <h2>Añadir Producto</h2>
@@ -15,36 +21,59 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <a th:href="@{/productos}">Volver</a>
         <p/>
 
-        <form th:action="@{/saveProduct}" method="post" th:object="${producto}">
+        <div class="container" id="containerFormGeneral">
 
-            <label for="codigoNacional">Código nacional:</label>
-            <input type="text" name="codigoNacional" th:field="*{codigoNacional}">
+            <form th:action="@{/saveProduct}" method="post" th:object="${producto}">
 
-            <label for="receta">Receta:</label>
-            <input type="text" name="receta" th:field="*{receta}"/>
+                <div class="form-group"> 
+                    <label for="codigoNacional">Código nacional:</label>
+                    <input type="text" class="form-control" name="codigoNacional" th:field="*{codigoNacional}">
+                </div>
 
-            <label for="stock">Stock:</label>
-            <input type="text" name="stock" th:field="*{stock}"/>
+                <div class="form-group">
+                    <label for="receta">Receta:</label>
+                    <input type="text" class="form-control" name="receta" th:field="*{receta}"/> 
+                </div>
 
-            <label for="nombreProducto">Nombre:</label>
-            <input type="text" name="nombreProducto" th:field="*{nombreProducto}"/>
+                <div class="form-group">
+                    <label for="stock">Stock:</label>
+                    <input type="text" class="form-control" name="stock" th:field="*{stock}"/> 
+                </div>
 
-            <label for="descripcion">Descripción:</label>
-            <input type="text" name="descripcion" th:field="*{descripcion}"/>
+                <div class="form-group">
+                    <label for="nombreProducto">Nombre:</label>
+                    <input type="text" class="form-control" name="nombreProducto" th:field="*{nombreProducto}"/> 
+                </div>
 
-            <label for="unidadesEmbalaje">Unidades Embalaje:</label>
-            <input type="text" name="unidadesEmbalaje" th:field="*{unidadesEmbalaje}"/>
+                <div class="form-group">
+                    <label for="descripcion">Descripción:</label>
+                    <input type="text" class="form-control" name="descripcion" th:field="*{descripcion}"/> 
+                </div>
 
-            <label for="dosis">Dosis:</label>
-            <input type="text" name="dosis" th:field="*{dosis}"/>
+                <div class="form-group">
+                    <label for="unidadesEmbalaje">Unidades Embalaje:</label>
+                    <input type="text" class="form-control" name="unidadesEmbalaje" th:field="*{unidadesEmbalaje}"/> 
+                </div>
 
-            <label for="precio">Precio:</label>
-            <input type="text" name="precio" th:field="*{precio}"/>
+                <div class="form-group"> 
+                    <label for="dosis">Dosis:</label>
+                    <input type="text" class="form-control" name="dosis" th:field="*{dosis}"/>
+                </div>
 
-            <label for="iva">IVA:</label>
-            <input type="text" name="iva" th:field="*{iva}"/>
-            <p/>
-            <input type="submit" name="enviar" value="Enviar datos"/>
-        </form>
+                <div class="form-group"> 
+                    <label for="precio">Precio:</label>
+                    <input type="text" class="form-control" name="precio" th:field="*{precio}"/>
+                </div>
+
+                <div class="form-group"> 
+                    <label for="iva">IVA:</label>
+                    <input type="text" class="form-control" name="iva" th:field="*{iva}"/>
+                </div>
+
+                <p/>
+                <p/>
+                <input type="submit" class="btn btn-primary" name="enviar" value="Enviar datos"/>
+            </form>
+        </div>
     </body>
 </html>
