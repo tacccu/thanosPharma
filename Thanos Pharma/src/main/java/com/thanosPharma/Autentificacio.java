@@ -40,7 +40,7 @@ public class Autentificacio {
             String[] resource = {"/model/style.css","/errors/"};
             return http.authorizeHttpRequests((requests) -> requests
                     .requestMatchers(resource).permitAll()
-                    .requestMatchers("/menu").hasAnyAuthority("bena")
+                    .requestMatchers("/menu").hasAnyAuthority("kiwi")
                     .anyRequest().authenticated()
             )
                     .formLogin((form) -> form
