@@ -24,36 +24,34 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author benal
  */
-public class UsuarisAuth {
+@Service("userDetailsService")
+public class UsuariService implements UserDetailsService {
 
-    @Service("userDetailsService")
-    public class UsuariService implements UserDetailsService {
+    @Autowired
+    private UsuarioDAO usuariDAO;
 
-        @Autowired
-        private UsuarioDAO usuariDAO;
+    @Override
+    @Transactional(readOnly = true)
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        @Override
-        @Transactional(readOnly = true)
-        public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Usuario usuari = usuariDAO.findByUsername(username);
 
-            Usuario usuari = usuariDAO.findByUsername(username);
+        if (usuari == null) {
 
-            if (usuari == null) {
+            throw new UsernameNotFoundException(username);
 
-                throw new UsernameNotFoundException(username);
-
-            }
-            var rols = new ArrayList<GrantedAuthority>();
-
-            for (Rol rol : usuari.getRols()) {
-                rols.add(new SimpleGrantedAuthority(rol.getNom()));
-            }
-
-            log.info(usuari.getUsername());
-            log.info(usuari.getPassword());
-            log.info(rols.get(0).getAuthority());
-
-            return new User(usuari.getUsername(), usuari.getPassword(), rols);
         }
+        var rols = new ArrayList<GrantedAuthority>();
+
+        for (Rol rol : usuari.getRols()) {
+            rols.add(new SimpleGrantedAuthority(rol.getNom()));
+            System.out.println(rol);
+        }
+
+        log.info(usuari.getUsername());
+        log.info(usuari.getPassword());
+        log.info(rols.get(0).getAuthority());
+
+        return new User(usuari.getUsername(), usuari.getPassword(), rols);
     }
 }

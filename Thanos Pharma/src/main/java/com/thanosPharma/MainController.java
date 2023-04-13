@@ -7,6 +7,7 @@ package com.thanosPharma;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 /**
  *
@@ -16,13 +17,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainController {
     
     @GetMapping("/")
-    public String showlogin(Model model){
-        return "login";
+    public RedirectView showlogin(Model model){
+        return new RedirectView("/productos");
     }
-    
-    @GetMapping("/menu")
-    public String showMenu(Model model) {
-        return "menu";
-    }
+   
 
 }

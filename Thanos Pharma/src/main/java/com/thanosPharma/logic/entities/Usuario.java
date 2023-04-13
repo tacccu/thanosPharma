@@ -29,7 +29,7 @@ public class Usuario implements Serializable {
     private static final long serialVersionUID = 1l;
     @Id 
     @GeneratedValue(strategy=GenerationType.IDENTITY) //Generació autonumèrica de l'id
-    @Column(name = "id_usuari")
+    @Column(name = "id_usuario")
     private long idUsuari;
     
     @NotEmpty
@@ -39,7 +39,7 @@ public class Usuario implements Serializable {
     private String password;
     
     @OneToMany
-    @JoinColumn(name="id_usuari")
+    @JoinColumn(name="id_usuario")
     private List<Rol> rols;
 
 }

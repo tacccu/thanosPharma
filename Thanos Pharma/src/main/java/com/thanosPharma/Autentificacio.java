@@ -49,7 +49,7 @@ public class Autentificacio {
                     .permitAll()
                     )
                     .exceptionHandling((exception) -> exception
-                    .accessDeniedPage("/errors/error403"))
+                    .accessDeniedPage("/template/error403"))
                     .build();
 
         }
