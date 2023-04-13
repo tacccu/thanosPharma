@@ -1,7 +1,7 @@
 <!-- Coding by CodingLab | www.codinglabweb.com -->
 <!DOCTYPE html>
 <div th:fragment="sidebar">
-    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <html lang="es" xmlns:th="http://www.thymeleaf.org">
         <head>
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,14 +37,14 @@
 
                         <ul class="menu-links" style="padding-left: 0px;">
                             <li class="nav-link">
-                                <a href="#">
+                                <a href="/menu">
                                     <i class='bx bxs-grid-alt icon'></i>
                                     <span class="text nav-text">Modulos</span>
                                 </a>
                             </li>        
 
                             <li class="nav-link">
-                                <a href="#">
+                                <a href="/ventas">
                                     <i class='bx bxs-basket icon' ></i>
                                     <span class="text nav-text">Ventas</span>
                                 </a>
@@ -70,9 +70,9 @@
                     </div>
                     <div class="bottom-content">
                         <li class="nav-link">
-                            <a href="#">
+                            <a href="/modifUsuario">
                                 <i class='bx bxs-user-account icon'></i>
-                                <span class="text nav-text">Gestión Clientes</span>
+                                <span class="text nav-text">Gestión Usuarios</span>
                             </a>
                         </li>
                         <li class="">
@@ -105,22 +105,21 @@
     </html>
 </div>
 <div th:fragment="menu">
-
     <section class="hero-section">
         <div class="card-grid">
-            <a class="card" href="#">
+            <a class="card" href="/ventas">
                 <div class="card__background"><i class='bx bxs-basket'></i></i></div>
                 <div class="card__content">
                     <h3 class="card__heading">Ventas</h3>
                 </div>
             </a>
-            <a class="card" href="#">
+            <a class="card" href="/productos">
                 <div class="card__background"><i class='bx bxs-package'></i></div>
                 <div class="card__content">
                     <h3 class="card__heading">Productos</h3>
                 </div>
             </a>
-            <a class="card" href="#">
+            <a class="card" href="/mainClientes">
                 <div class="card__background"><i class='bx bxs-user' ></i></div>
                 <div class="card__content">
                     <h3 class="card__heading">Clientes</h3>
@@ -128,5 +127,5 @@
             </a>
         </div>
     </section>
-
 </div>
+

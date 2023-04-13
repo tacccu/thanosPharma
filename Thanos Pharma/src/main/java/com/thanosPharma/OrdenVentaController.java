@@ -5,6 +5,7 @@
 package com.thanosPharma;
 
 import com.thanosPharma.logic.services.OrdenVentaService;
+import com.thanosPharma.logic.services.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,9 +21,25 @@ public class OrdenVentaController {
     @Autowired
     OrdenVentaService ordenVentaService;
 
-    @GetMapping("/mainVentas")
-    public String showMainClientes(Model model) {
+    @GetMapping("/ventas")
+    public String homeVentas(Model model) {
+
+
         return "mainVentas";
+    }
+    
+    @GetMapping("/formVentas")
+    public String formVentas(Model model) {
+
+
+        return "formVentas";
+    }
+    
+    @GetMapping("/ventasDetalles")
+    public String homeProductos(Model model) {
+
+
+        return "ventasDetalles";
     }
 
 }
