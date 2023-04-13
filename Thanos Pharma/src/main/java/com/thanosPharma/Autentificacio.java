@@ -20,39 +20,37 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
  *
  * @author benal
  */
-
-    @Configuration
-    @EnableWebSecurity
+@Configuration
+@EnableWebSecurity
 
 public class Autentificacio {
 
-        @Autowired
-        private UserDetailsService userDetailsService;
+    @Autowired
+    private UserDetailsService userDetailsService;
 
-        @Autowired
-        public void autenticacio(AuthenticationManagerBuilder auth) throws Exception {
-            auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
-        }
+    @Autowired
+    public void autenticacio(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
+    }
 
-        @Bean
-        public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-            String[] resource = {"/model/style.css","/errors/"};
-            return http.authorizeHttpRequests((requests) -> requests
-                    .requestMatchers(resource).permitAll()
-                    .requestMatchers("/menu").hasAnyAuthority("kiwi")
-                    .anyRequest().authenticated()
-            )
-                    .formLogin((form) -> form
-                    .loginPage("/login")
-                    .loginProcessingUrl("/login")
-                    .permitAll()
-                    )
-                    .exceptionHandling((exception) -> exception
-                    .accessDeniedPage("/template/error403"))
-                    .build();
+        String[] resource = {"/model/style.css", "/errors/"};
+        return http.authorizeHttpRequests((requests) -> requests
+                .requestMatchers(resource).permitAll()
+                .requestMatchers("/menu").hasAnyAuthority("kiwi")
+                .anyRequest().authenticated()
+        )
+                .formLogin((form) -> form
+                .loginPage("/login")
+                .loginProcessingUrl("/login")
+                .permitAll()
+                )
+                .exceptionHandling((exception) -> exception
+                .accessDeniedPage("/template/error403"))
+                .build();
 
-        }
+    }
 
-    
 }
