@@ -79,7 +79,7 @@ function buscarCliente() {
     var valorBuscado = document.getElementById("cuadro-busqueda").value.toLowerCase();
     var tablaClientes = document.getElementById("tabla-clientes");
     var filas = tablaClientes.getElementsByTagName("tr");
-    for (var i = 0; i < filas.length; i++) {
+    for (var i = 1; i < filas.length; i++) {
         var celdas = filas[i].getElementsByTagName("td");
         var filaVisible = false;
         for (var j = 0; j < celdas.length; j++) {
@@ -97,7 +97,7 @@ function buscarCliente() {
     }
 }
 
-function modifyOrDeleteCliente (action) {
+function modifyOrDeleteCliente(action) {
 
     var checkbox = document.querySelector('input[name="selectedCliente"]:checked');
 
