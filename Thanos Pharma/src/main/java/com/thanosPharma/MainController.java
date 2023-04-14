@@ -17,7 +17,7 @@ public class MainController {
     
     @GetMapping("/")
     public String showlogin(Model model){
-        return "redirect: /productos";
+        return "menu";
     }
    
 

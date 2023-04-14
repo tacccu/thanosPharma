@@ -1,7 +1,8 @@
+<head>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
 <body>
     <form method="POST" th:action="@{/login}">
-        <link rel="stylesheet" type="text/css" href="/model/style.css">
-        <script src="/model/script.js"></script>
         <div class="container">
             <div class="backbox">
                 <div class="loginMsg">
@@ -30,7 +31,7 @@
                         <input type="password" name="password" id="password"/>
                     </div>
                     <p>¿Has olvidado tu contraseña?</p>
-                    <button type="submit" value="Login" th:href="@{/productos}">Continuar</button>
+                    <button type="submit" value="Login">Continuar</button>
                 </div>
 
                 <div class="signup hide">

@@ -36,10 +36,11 @@ public class Autentificacio {
 
         @Bean
         public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+            
+            String[] resources = {"/css/style.css"};
 
-            String[] resource = {"/css/general.css","/model/style.css"};
             return http.authorizeHttpRequests((requests) -> requests
-                    .requestMatchers(resource).permitAll()
+                    .requestMatchers(resources).permitAll()
                     .requestMatchers("/productos").hasAnyAuthority("bena")
                     .anyRequest().authenticated()
             )
