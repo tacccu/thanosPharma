@@ -5,7 +5,7 @@
 
 function modifyOrDeleteProducto(action) {
 
-    var checkbox = document.querySelector('input[name="selectedProducto"]:checked');
+    var checkbox = document.querySelector('input[name="selectedCheckbox"]:checked');
 
     if (checkbox) {
 
@@ -29,7 +29,7 @@ function modifyOrDeleteProducto(action) {
 
 function seleccionarUnicoCheckbox(currentCheckbox) {
 
-    var checkboxes = document.getElementsByName('selectedProducto');
+    var checkboxes = document.getElementsByName('selectedCheckbox');
 
     for (var i = 0; i < checkboxes.length; i++) {
 
