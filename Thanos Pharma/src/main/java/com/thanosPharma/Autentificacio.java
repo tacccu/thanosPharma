@@ -4,6 +4,7 @@
  */
 package com.thanosPharma;
 
+import Utils.Encoder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -20,40 +21,48 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
  *
  * @author benal
  */
-
-    @Configuration
-    @EnableWebSecurity
+@Configuration
+@EnableWebSecurity
 
 public class Autentificacio {
 
-        @Autowired
-        private UserDetailsService userDetailsService;
+    @Autowired
+    private UserDetailsService userDetailsService;
 
-        @Autowired
-        public void autenticacio(AuthenticationManagerBuilder auth) throws Exception {
-            auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
-        }
+    @Autowired
+    public void autenticacio(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
+    }
 
-        @Bean
-        public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-            
-            String[] resources = {"/css/style.css"};
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-            return http.authorizeHttpRequests((requests) -> requests
-                    .requestMatchers(resources).permitAll()
-                    .requestMatchers("/productos").hasAnyAuthority("bena")
-                    .anyRequest().authenticated()
-            )
-                    .formLogin((form) -> form
-                    .loginPage("/login")
-                    .loginProcessingUrl("/login")
-                    .permitAll()
-                    )
-                    .exceptionHandling((exception) -> exception
-                    .accessDeniedPage("/template/error403"))
-                    .build();
+        String[] resources = {"/css/style.css"};
 
-        }
+        return http.authorizeHttpRequests((requests) -> requests
+                .requestMatchers(resources).permitAll()
+                .requestMatchers("/productos").hasAnyAuthority("bena")
+                .anyRequest().authenticated()
+        )
+                .formLogin((form) -> form
+                .loginPage("/login")
+                .loginProcessingUrl("/login")
+                .permitAll()
+                )
+                .exceptionHandling((exception) -> exception
+                .accessDeniedPage("/template/error403"))
+                .build();
 
-    
+    }
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        BCryptPasswordEncoder codificador = new BCryptPasswordEncoder();
+
+        auth.inMemoryAuthentication()
+                .withUser("usuario1").password(codificador.encode("123")).roles("bena")
+                .and()
+                .withUser("usuario2").password(codificador.encode("admin")).roles("ADMIN");
+    }
+
 }
