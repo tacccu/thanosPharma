@@ -28,9 +28,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <label for="id_cliente" th:text="#{forClient.id}"/>
                     <input type="text" class="form-control" name="id_cliente" th:field="*{id_cliente}" th:placeholder="#{forClient.ph.idcliente}">
                 </div>
-                <div class="form-group">
+                <div class="form-group"
+                     th:classappend="${#fields.hasErrors('tse')} ? 'has-error'">
                     <label for="tse" th:text="#{forClient.tse}"/>
                     <input type="text" class="form-control" name="tse" th:field="*{tse}" th:placeholder="#{forClient.ph.tse}">
+                    <span th:if="${#fields.hasErrors('tse')}" th:errors="*(tse)"
+                          class="help-block" id="id-error">Errores</span>
                 </div>
                 <div class="form-group">
                     <label for="nombre" th:text="#{forClient.name}"/>
