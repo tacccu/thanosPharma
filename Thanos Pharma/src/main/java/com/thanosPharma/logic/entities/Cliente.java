@@ -29,7 +29,7 @@ public class Cliente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_cliente;
     @NotEmpty
-    @Size(min = 12, max = 12)
+    @Size(min = 12, max = 12, message="${formClientes.error.tse}")
     private String tse;
     @NotEmpty
     private String nombre;
