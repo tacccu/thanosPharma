@@ -36,11 +36,12 @@ public class Autentificacio {
 
         @Bean
         public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+            
+            String[] resources = {"/css/style.css"};
 
-            String[] resource = {"/model/style.css","/errors/"};
             return http.authorizeHttpRequests((requests) -> requests
-                    .requestMatchers(resource).permitAll()
-                    .requestMatchers("/menu").hasAnyAuthority("bena")
+                    .requestMatchers(resources).permitAll()
+                    .requestMatchers("/productos").hasAnyAuthority("bena")
                     .anyRequest().authenticated()
             )
                     .formLogin((form) -> form
