@@ -6,6 +6,7 @@ package com.thanosPharma;
 
 import com.thanosPharma.logic.entities.Producto;
 import com.thanosPharma.logic.services.ProductoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,7 +38,7 @@ public class ProductoController {
     }
 
     @PostMapping("/saveProduct")
-    public String saveProduct(Producto producto) {
+    public String saveProduct(@Valid Producto producto) {
 
         productoService.saveProduct(producto);
 
