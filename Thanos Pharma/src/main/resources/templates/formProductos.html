@@ -26,47 +26,47 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <form th:action="@{/saveProduct}" method="post" th:object="${producto}">
 
                 <div class="form-group"> 
-                    <label for="codigoNacional">Código nacional:</label>
+                    <label for="codigoNacional" th:text="#{formProductos.id}"/>
                     <input type="text" class="form-control" name="codigoNacional" th:field="*{codigoNacional}">
                 </div>
 
                 <div class="form-group">
-                    <label for="receta">Receta:</label>
+                    <label for="receta" th:text="#{formProductos.receta}"/>
                     <input type="text" class="form-control" name="receta" th:field="*{receta}"/> 
                 </div>
 
                 <div class="form-group">
-                    <label for="stock">Stock:</label>
+                    <label for="stock" th:text="#{formProductos.stock}"/>
                     <input type="text" class="form-control" name="stock" th:field="*{stock}"/> 
                 </div>
 
                 <div class="form-group">
-                    <label for="nombreProducto">Nombre:</label>
+                    <label for="nombreProducto" th:text="#{formProductos.name}"/>
                     <input type="text" class="form-control" name="nombreProducto" th:field="*{nombreProducto}"/> 
                 </div>
 
                 <div class="form-group">
-                    <label for="descripcion">Descripción:</label>
+                    <label for="descripcion" th:text="#{formProductos.description}"/>
                     <input type="text" class="form-control" name="descripcion" th:field="*{descripcion}"/> 
                 </div>
 
                 <div class="form-group">
-                    <label for="unidadesEmbalaje">Unidades Embalaje:</label>
+                    <label for="unidadesEmbalaje" th:text="#{formProductos.quantityPerPackage}"/>
                     <input type="text" class="form-control" name="unidadesEmbalaje" th:field="*{unidadesEmbalaje}"/> 
                 </div>
 
                 <div class="form-group"> 
-                    <label for="dosis">Dosis:</label>
+                    <label for="dosis" th:text="#{formProductos.dose}"/>
                     <input type="text" class="form-control" name="dosis" th:field="*{dosis}"/>
                 </div>
 
                 <div class="form-group"> 
-                    <label for="precio">Precio:</label>
+                    <label for="precio" th:text="#{formProductos.price}"/>
                     <input type="text" class="form-control" name="precio" th:field="*{precio}"/>
                 </div>
 
                 <div class="form-group"> 
-                    <label for="iva">IVA:</label>
+                    <label for="iva" th:text="#{formProductos.iva}"/>
                     <input type="text" class="form-control" name="iva" th:field="*{iva}"/>
                 </div>
 
