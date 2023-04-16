@@ -16,7 +16,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <link href="/css/general.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <h2 class="cabecera">Añadir Producto</h2>
+        <h2 class="cabecera">Añadir/Modificar Producto</h2>
         <button class="cabecera" onclick="window.location.href='/productos'"><- Volver</button>
         <div class="container" id="containerFormGeneral">
             <form th:action="@{/saveProduct}" method="post" th:object="${producto}">
@@ -28,7 +28,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                    <div class="col-md-6"> 
                        <div class="form-group"> 
                            <label for="codigoNacional" th:text="#{formProductos.id}"/>
-                           <input type="text" class="form-control" th:classappend="${#fields.hasErrors('codigoNacional')} ? 'is-invalid' : '' " name="codigoNacional" th:field="*{codigoNacional}">
+                           <input type="text" class="form-control" th:classappend="${#fields.hasErrors('codigoNacional')} ? 'is-invalid' : '' " 
+                                  name="codigoNacional" th:field="*{codigoNacional}" th:readonly="${isAModification}">
                        </div>
                    </div>
                    <div class="col-md-6 d-flex align-items-center"> 
