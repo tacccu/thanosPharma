@@ -22,9 +22,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <p/>
 
         <div class="container" id="containerFormGeneral">
-
             <form th:action="@{/saveProduct}" method="post" th:object="${producto}">
-
+                 <span th:if="${#fields.hasErrors()}" class="text-danger" id="id-error">Hay errores en el formulario:</span>
+                    <ul th:if="${#fields.hasErrors()}" class="text-danger" id="id-error">
+                       <li th:each="error : ${#fields.errors()}" th:text="${error}"></li>
+                    </ul>
                 <div class="form-group"> 
                     <label for="codigoNacional" th:text="#{formProductos.id}"/>
                     <input type="text" class="form-control" name="codigoNacional" th:field="*{codigoNacional}">

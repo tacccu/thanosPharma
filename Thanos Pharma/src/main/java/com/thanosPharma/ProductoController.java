@@ -10,6 +10,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -38,8 +39,10 @@ public class ProductoController {
     }
 
     @PostMapping("/saveProduct")
-    public String saveProduct(@Valid Producto producto) {
-
+    public String saveProduct(@Valid Producto producto, BindingResult br) {
+        if (br.hasErrors()) {
+            return "formProductos";
+        }
         productoService.saveProduct(producto);
 
         return "redirect:/productos";
