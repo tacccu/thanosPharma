@@ -9,7 +9,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -31,10 +30,10 @@ public class Producto implements Serializable {
     
     private boolean receta;
     
-    @Min(0)
+    @Min(value = 0, message = "El stock no puede ser negativo") 
     private int stock;
     
-    @NotNull(message = "El nombre del producto ha de tenir algún valor") 
+    @NotNull(message = "El nombre del producto ha de tener algún valor") 
     @NotEmpty(message = "El nombre del producto no puede estar vacío")  
     @Size(max = 100)
     private String nombreProducto;
