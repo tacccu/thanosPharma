@@ -20,19 +20,18 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
  *
  * @author benal
  */
-
-    @Configuration
-    @EnableWebSecurity
+@Configuration
+@EnableWebSecurity
 
 public class Autentificacio {
 
-        @Autowired
-        private UserDetailsService userDetailsService;
+    @Autowired
+    private UserDetailsService userDetailsService;
 
-        @Autowired
-        public void autenticacio(AuthenticationManagerBuilder auth) throws Exception {
-            auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
-        }
+    @Autowired
+    public void autenticacio(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
+    }
 
         @Bean
         public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -41,7 +40,7 @@ public class Autentificacio {
 
             return http.authorizeHttpRequests((requests) -> requests
                     .requestMatchers(resources).permitAll()
-                    .requestMatchers("/productos").hasAnyAuthority("bena")
+                    .requestMatchers("/productos").hasAnyAuthority("kiwi")
                     .anyRequest().authenticated()
             )
                     .formLogin((form) -> form
@@ -53,7 +52,6 @@ public class Autentificacio {
                     .accessDeniedPage("/template/error403"))
                     .build();
 
-        }
+    }
 
-    
 }
