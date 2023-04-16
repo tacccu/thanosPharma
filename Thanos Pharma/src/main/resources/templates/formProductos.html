@@ -16,26 +16,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <link href="/css/general.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <h2>Añadir Producto</h2>
-
-        <a th:href="@{/productos}">Volver</a>
-
+        <h2 class="cabecera">Añadir Producto</h2>
+        <button class="cabecera" onclick="window.location.href='/productos'"><- Volver</button>
         <div class="container" id="containerFormGeneral">
             <form th:action="@{/saveProduct}" method="post" th:object="${producto}">
                 <span th:if="${#fields.hasErrors()}" class="text-danger" id="id-error">Hay errores en el formulario:</span>
                 <ul th:if="${#fields.hasErrors()}" class="text-danger" id="id-error">
                    <li th:each="error : ${#fields.errors()}" th:text="${error}"></li>
                 </ul>
-                <div class="form-group"> 
-                    <label for="codigoNacional" th:text="#{formProductos.id}"/>
-                    <input type="text" class="form-control" th:classappend="${#fields.hasErrors('codigoNacional')} ? 'is-invalid' : '' " name="codigoNacional" th:field="*{codigoNacional}">
+                <div class="row">
+                   <div class="col-md-6"> 
+                       <div class="form-group"> 
+                           <label for="codigoNacional" th:text="#{formProductos.id}"/>
+                           <input type="text" class="form-control" th:classappend="${#fields.hasErrors('codigoNacional')} ? 'is-invalid' : '' " name="codigoNacional" th:field="*{codigoNacional}">
+                       </div>
+                   </div>
+                   <div class="col-md-6 d-flex align-items-center"> 
+                       <div class="form-group">
+                           <label for="receta" th:text="#{formProductos.receta}"/>
+                           <input type="checkbox" class="form-check-input" name="receta" th:field="*{receta}"/> 
+                       </div>
+                   </div>
                 </div>
-                
-                <div class="form-group">
-                    <label for="receta" th:text="#{formProductos.receta}"/>
-                    <input type="checkbox" class="form-check-input" name="receta" th:field="*{receta}"/> 
-                </div>
-
                 <div class="form-group">
                     <label for="stock" th:text="#{formProductos.stock}"/>
                     <input type="number" class="form-control" th:classappend="${#fields.hasErrors('stock')} ? 'is-invalid' : '' " name="stock" th:field="*{stock}"/> 
