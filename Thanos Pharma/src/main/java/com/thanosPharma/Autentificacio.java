@@ -33,23 +33,24 @@ public class Autentificacio {
         auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        @Bean
+        public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+            
+            String[] resources = {"/css/style.css"};
 
-        String[] resource = {"/model/style.css", "/errors/"};
-        return http.authorizeHttpRequests((requests) -> requests
-                .requestMatchers(resource).permitAll()
-                .requestMatchers("/menu").hasAnyAuthority("kiwi")
-                .anyRequest().authenticated()
-        )
-                .formLogin((form) -> form
-                .loginPage("/login")
-                .loginProcessingUrl("/login")
-                .permitAll()
-                )
-                .exceptionHandling((exception) -> exception
-                .accessDeniedPage("/template/error403"))
-                .build();
+            return http.authorizeHttpRequests((requests) -> requests
+                    .requestMatchers(resources).permitAll()
+                    .requestMatchers("/productos").hasAnyAuthority("kiwi")
+                    .anyRequest().authenticated()
+            )
+                    .formLogin((form) -> form
+                    .loginPage("/login")
+                    .loginProcessingUrl("/login")
+                    .permitAll()
+                    )
+                    .exceptionHandling((exception) -> exception
+                    .accessDeniedPage("/template/error403"))
+                    .build();
 
     }
 
