@@ -29,25 +29,25 @@ public class Cliente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_cliente;
     @NotEmpty
-    @Size(min = 12, max = 12, message="${formClientes.error.tse}")
+    @Size(min = 12, max = 12, message="${formClientes.error.tse}, debe introducir 12 carácteres")
     private String tse;
-    @NotEmpty
+    @NotEmpty(message="${formClientes.error.nombre}")
     private String nombre;
-    @NotEmpty
+    @NotEmpty(message="${formClientes.error.apellido}")
     private String apellido;
-    @NotEmpty
+    @NotEmpty(message="${formClientes.error.direccion}")
     private String direccion;
-    @NotEmpty
+    @NotEmpty(message="${formClientes.error.municipio}")
     private String municipio;
     @NotEmpty
-    @Email
+    @Email(message="${formClientes.error.email}")
     private String email;
     @NotNull
     @Min(5)
-    @Max(5)
+    @Max(value=5, message="${formClientes.error.codigo_postal}")
     private int codigo_postal;
     @NotNull
     @Min(9)
-    @Max(9)
+    @Max(value=9, message="${formClientes.error.nombre}")
     private int telefono;
 }
