@@ -6,9 +6,11 @@ package com.thanosPharma;
 
 import com.thanosPharma.logic.entities.Cliente;
 import com.thanosPharma.logic.services.ClienteService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -36,11 +38,15 @@ public class ClienteController {
     }
 
     @PostMapping("/saveClientes")
-    public String saveClientes(Cliente cliente) {
+    public String saveClientes(@Valid Cliente cliente, BindingResult br) {
 
-        clienteService.saveClientes(cliente);
+        if (br.hasErrors()) {
+            return "formClientes";
+        } else {
+            clienteService.saveClientes(cliente);
+            return "redirect:/clientes";
+        }
 
-        return "redirect:/clientes";
     }
 
     @GetMapping("/modifyCliente/{id_cliente}")
