@@ -16,58 +16,61 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <link href="/css/general.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <h2>Añadir Producto</h2>
-
-        <a th:href="@{/productos}">Volver</a>
-        <p/>
-
+        <h2 class="cabecera">Añadir Producto</h2>
+        <button class="cabecera" onclick="window.location.href='/productos'"><- Volver</button>
         <div class="container" id="containerFormGeneral">
-
             <form th:action="@{/saveProduct}" method="post" th:object="${producto}">
-
-                <div class="form-group"> 
-                    <label for="codigoNacional">Código nacional:</label>
-                    <input type="text" class="form-control" name="codigoNacional" th:field="*{codigoNacional}">
+                <span th:if="${#fields.hasErrors()}" class="text-danger" id="id-error">Hay errores en el formulario:</span>
+                <ul th:if="${#fields.hasErrors()}" class="text-danger" id="id-error">
+                   <li th:each="error : ${#fields.errors()}" th:text="${error}"></li>
+                </ul>
+                <div class="row">
+                   <div class="col-md-6"> 
+                       <div class="form-group"> 
+                           <label for="codigoNacional" th:text="#{formProductos.id}"/>
+                           <input type="text" class="form-control" th:classappend="${#fields.hasErrors('codigoNacional')} ? 'is-invalid' : '' " name="codigoNacional" th:field="*{codigoNacional}">
+                       </div>
+                   </div>
+                   <div class="col-md-6 d-flex align-items-center"> 
+                       <div class="form-group">
+                           <label for="receta" th:text="#{formProductos.receta}"/>
+                           <input type="checkbox" class="form-check-input" name="receta" th:field="*{receta}"/> 
+                       </div>
+                   </div>
+                </div>
+                <div class="form-group">
+                    <label for="stock" th:text="#{formProductos.stock}"/>
+                    <input type="number" class="form-control" th:classappend="${#fields.hasErrors('stock')} ? 'is-invalid' : '' " name="stock" th:field="*{stock}"/> 
                 </div>
 
                 <div class="form-group">
-                    <label for="receta">Receta:</label>
-                    <input type="text" class="form-control" name="receta" th:field="*{receta}"/> 
+                    <label for="nombreProducto" th:text="#{formProductos.name}"/>
+                    <input type="text" class="form-control" th:classappend="${#fields.hasErrors('nombreProducto')} ? 'is-invalid' : '' " name="nombreProducto" th:field="*{nombreProducto}"/> 
                 </div>
 
                 <div class="form-group">
-                    <label for="stock">Stock:</label>
-                    <input type="text" class="form-control" name="stock" th:field="*{stock}"/> 
+                    <label for="descripcion" th:text="#{formProductos.description}"/>
+                    <input type="text" class="form-control" th:classappend="${#fields.hasErrors('descripcion')} ? 'is-invalid' : '' " name="descripcion" th:field="*{descripcion}"/> 
                 </div>
 
                 <div class="form-group">
-                    <label for="nombreProducto">Nombre:</label>
-                    <input type="text" class="form-control" name="nombreProducto" th:field="*{nombreProducto}"/> 
-                </div>
-
-                <div class="form-group">
-                    <label for="descripcion">Descripción:</label>
-                    <input type="text" class="form-control" name="descripcion" th:field="*{descripcion}"/> 
-                </div>
-
-                <div class="form-group">
-                    <label for="unidadesEmbalaje">Unidades Embalaje:</label>
-                    <input type="text" class="form-control" name="unidadesEmbalaje" th:field="*{unidadesEmbalaje}"/> 
-                </div>
-
-                <div class="form-group"> 
-                    <label for="dosis">Dosis:</label>
-                    <input type="text" class="form-control" name="dosis" th:field="*{dosis}"/>
-                </div>
-
-                <div class="form-group"> 
-                    <label for="precio">Precio:</label>
-                    <input type="text" class="form-control" name="precio" th:field="*{precio}"/>
+                    <label for="unidadesEmbalaje" th:text="#{formProductos.quantityPerPackage}"/>
+                    <input type="number" class="form-control" th:classappend="${#fields.hasErrors('unidadesEmbalaje')} ? 'is-invalid' : '' " name="unidadesEmbalaje" th:field="*{unidadesEmbalaje}"/> 
                 </div>
 
                 <div class="form-group"> 
-                    <label for="iva">IVA:</label>
-                    <input type="text" class="form-control" name="iva" th:field="*{iva}"/>
+                    <label for="dosis" th:text="#{formProductos.dose}"/>
+                    <input type="text" class="form-control" th:classappend="${#fields.hasErrors('dosis')} ? 'is-invalid' : '' " name="dosis" th:field="*{dosis}"/>
+                </div>
+
+                <div class="form-group"> 
+                    <label for="precio" th:text="#{formProductos.price}"/>
+                    <input type="number" class="form-control" th:classappend="${#fields.hasErrors('precio')} ? 'is-invalid' : '' " name="precio" th:field="*{precio}"/>
+                </div>
+
+                <div class="form-group"> 
+                    <label for="iva" th:text="#{formProductos.iva}"/>
+                    <input type="number" class="form-control" th:classappend="${#fields.hasErrors('iva')} ? 'is-invalid' : '' "  name="iva" th:field="*{iva}"/>
                 </div>
 
                 <p/>

@@ -4,7 +4,6 @@
  */
 package com.thanosPharma;
 
-import Utils.Encoder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -34,35 +33,25 @@ public class Autentificacio {
         auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        @Bean
+        public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+            
+            String[] resources = {"/css/style.css"};
 
-        String[] resources = {"/css/style.css"};
+            return http.authorizeHttpRequests((requests) -> requests
+                    .requestMatchers(resources).permitAll()
+                    .requestMatchers("/productos").hasAnyAuthority("kiwi")
+                    .anyRequest().authenticated()
+            )
+                    .formLogin((form) -> form
+                    .loginPage("/login")
+                    .loginProcessingUrl("/login")
+                    .permitAll()
+                    )
+                    .exceptionHandling((exception) -> exception
+                    .accessDeniedPage("/template/error403"))
+                    .build();
 
-        return http.authorizeHttpRequests((requests) -> requests
-                .requestMatchers(resources).permitAll()
-                .requestMatchers("/productos").hasAnyAuthority("bena")
-                .anyRequest().authenticated()
-        )
-                .formLogin((form) -> form
-                .loginPage("/login")
-                .loginProcessingUrl("/login")
-                .permitAll()
-                )
-                .exceptionHandling((exception) -> exception
-                .accessDeniedPage("/template/error403"))
-                .build();
-
-    }
-
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        BCryptPasswordEncoder codificador = new BCryptPasswordEncoder();
-
-        auth.inMemoryAuthentication()
-                .withUser("usuario1").password(codificador.encode("123")).roles("bena")
-                .and()
-                .withUser("usuario2").password(codificador.encode("admin")).roles("ADMIN");
     }
 
 }
