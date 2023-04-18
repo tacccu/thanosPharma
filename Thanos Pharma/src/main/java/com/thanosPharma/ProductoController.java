@@ -52,6 +52,7 @@ public class ProductoController {
     public String modifyProducto(Producto producto, Model model) {
 
         model.addAttribute("producto", productoService.searchProduct(producto));
+        model.addAttribute("isAModification", true);
 
         return "formProductos";
     }
