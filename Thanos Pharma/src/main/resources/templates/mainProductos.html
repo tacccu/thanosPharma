@@ -20,7 +20,7 @@
                     <div id="topListaMainCliente">
                         <button type="button" class="btn btn-primary" onclick="location.href = '/formProductos'" th:text="#{productos.btn.add}"/>
                         <button type="button" class="btn btn-primary" onclick="modifyOrDeleteProducto('modify')" th:text="#{productos.btn.modify}"/>
-                        <button type="button" class="btn btn-primary" onclick="modifyOrDeleteProducto('delete')" th:text="#{productos.btn.delete}"/>
+                        <button type="button" class="btn btn-primary" onclick="modifyOrDeleteProducto('delete')" th:text="#{productos.btn.delete}" sec:authorize="hasAnyAuthority('admin')"/>
                         <p>
                         <div class="col-xs-2">
                             <input type="search" class="form-control rounded" id="cuadro-busqueda" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon" onkeyup="buscar()" />

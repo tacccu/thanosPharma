@@ -25,7 +25,6 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
  */
 @Configuration
 @EnableWebSecurity
-
 public class Autentificacio {
 
     @Autowired
@@ -43,7 +42,7 @@ public class Autentificacio {
 
         return http.authorizeHttpRequests((requests) -> requests
                 .requestMatchers(resources).permitAll()
-                .requestMatchers("/productos").hasAnyAuthority("admin")
+                .requestMatchers("/**").hasAnyAuthority("admin", "user")
                 .anyRequest().authenticated()
         )
                 .formLogin((form) -> {
@@ -51,12 +50,14 @@ public class Autentificacio {
                             .loginPage("/login")
                             .loginProcessingUrl("/login")
                             .permitAll();
-                            
 
                 }
                 )
                 .exceptionHandling((exception) -> exception
                 .accessDeniedPage("/template/error403"))
+                .logout()
+                .permitAll()
+                .and()
                 .build();
 
     }
@@ -66,7 +67,7 @@ public class Autentificacio {
         BCryptPasswordEncoder codificador = new BCryptPasswordEncoder();
 
         auth.inMemoryAuthentication()
-                .withUser("usuario1").password(codificador.encode("123")).roles("bena")
+                .withUser("usuario1").password(codificador.encode("123")).roles("user")
                 .and()
                 .withUser("usuario2").password(codificador.encode("admin")).roles("ADMIN");
     }

@@ -8,6 +8,7 @@ import com.thanosPharma.dao.UsuarioDAO;
 import com.thanosPharma.logic.entities.Rol;
 import com.thanosPharma.logic.entities.Usuario;
 import java.util.ArrayList;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import static org.hibernate.query.sqm.tree.SqmNode.log;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,13 +43,13 @@ public class UsuariService implements UserDetailsService {
 
         }
         
-        
         var rols = new ArrayList<GrantedAuthority>();
         
         for (Rol rol : usuari.getRols()) {
             rols.add(new SimpleGrantedAuthority(rol.getNom()));
             System.out.println(rol);
         }
+        
 
         log.info(usuari.getUsername());
         log.info(usuari.getPassword());

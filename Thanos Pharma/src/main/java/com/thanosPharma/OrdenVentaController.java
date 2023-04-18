@@ -10,7 +10,9 @@ import com.thanosPharma.logic.services.ProductoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -27,11 +29,8 @@ public class OrdenVentaController {
     @Autowired
     OrdenVentaService ordenVentaService;
 
-    @GetMapping("/ventas")
+    @GetMapping("/ventass")
     public String homeVentas(Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        boolean isAdmin = auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("admin"));
-        model.addAttribute("isAdmin", isAdmin);
 
         return "mainVentas";
     }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/security/tags" th:object="${model}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,8 +20,8 @@
                     <div id="topListaMainCliente">
                         <button type="button" class="btn btn-primary" onclick="location.href = '/formVentas'" th:text="#{ventas.btn.add}"/>
                         <button type="button" class="btn btn-primary" onclick="modifyOrDeleteProducto('modify')" th:text="#{ventas.btn.modify}"/>
-                        <button type="button" class="btn btn-primary" onclick="modifyOrDeleteProducto('delete')" th:text="#{ventas.btn.delete}" th:if="${isAdmin}"/>
-                        <p>
+                        <button type="button"  class="btn btn-primary" onclick="modifyOrDeleteProducto('delete')" th:text="#{ventas.btn.delete}" sec:authorize="hasAnyAuthority('admin')"/>
+                    </div>
                         <div class="col-xs-2">
                             <input type="search" class="form-control rounded" id="cuadro-busqueda" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon" onkeyup="buscar()" />
                         </div>

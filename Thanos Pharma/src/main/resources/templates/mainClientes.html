@@ -32,7 +32,7 @@
                     <div id="topListaMainCliente">
                         <button type="button" class="btn btn-primary" onclick="location.href = 'formClientes'" th:text="#{mainClientes.btn.add}"/>
                         <button type="button" class="btn btn-primary" onclick="modifyOrDeleteCliente('modify')" th:text="#{mainClientes.btn.modify}"/>
-                        <button type="button" class="btn btn-primary" onclick="modifyOrDeleteCliente('delete')" th:text="#{mainClientes.btn.delete}"/>
+                        <button type="button" class="btn btn-primary" onclick="modifyOrDeleteCliente('delete')" th:text="#{mainClientes.btn.delete}" sec:authorize="hasAnyAuthority('admin')"/>
                         <div class="col-xs-2 search-container">
                             <input type="search" class="form-control rounded" id="cuadro-busqueda" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon" onkeyup="buscarCliente()" />
                         </div>
