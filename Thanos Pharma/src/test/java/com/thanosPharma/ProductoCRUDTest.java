@@ -52,9 +52,23 @@ public class ProductoCRUDTest {
         Assertions.assertThat(productoService.searchProduct(producto)).as("crearNuevoProductoTest - El producto guardado no está en la bbdd").isNotNull();
     }
 
-    @DisplayName("JUnit test para verificar la búsqueda de todos los productos")
+    @DisplayName("JUnit test para verificar la creación de un nuevo producto")
     @Test
     @Order(2)
+    public void modificarProductoTest() {
+        Producto p = productoService.searchProduct(producto);
+        p.setStock(200);
+        p.setUnidadesEmbalaje(24);
+        productoService.saveProduct(p);
+        Producto productoModificado = productoService.searchProduct(producto);
+        Assertions.assertThat(productoModificado).as("modificarProductoTest - El producto modificado no está en la bbdd").isNotNull();
+        Assertions.assertThat(productoModificado.getStock()).as("modificarProductoTest - El stock del producto no se ha modificado correctamente").isEqualTo(200);
+        Assertions.assertThat(productoModificado.getUnidadesEmbalaje()).as("modificarProductoTest - Las unidades de embalaje del producto no se han modificado correctamente").isEqualTo(24);
+    }
+
+    @DisplayName("JUnit test para verificar la búsqueda de todos los productos")
+    @Test
+    @Order(3)
     public void listProductosTest() {
         List<Producto> productosBBDD = productoService.listProductos();
         Producto productoBuscado = productosBBDD.stream()
@@ -66,7 +80,7 @@ public class ProductoCRUDTest {
 
     @DisplayName("JUnit test para verificar la eliminación de un producto")
     @Test
-    @Order(3)
+    @Order(4)
     public void borrarProductoTest() {
         productoService.deleteProduct(producto);
         Assertions.assertThat(productoService.searchProduct(producto)).as("borrarProductoTest - El producto eliminado debería ser null").isNull();
