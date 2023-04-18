@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <title th:text="#{ventas.title}"></title>
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/grid/">
+        <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <!-- Custom styles for this template -->
+        <link href="/css/general.css" rel="stylesheet" type="text/css">
+        <script src="../model/functions.js"></script> 
+    </head>
+    <body>
+        <main>
+            <div class="container" id="listaMainVentas">
+                <div class="container">
+                    <h1 th:text="#{ventas.title}"/>
+                    <div id="topListaMainCliente">
+                        <button type="button" class="btn btn-primary" onclick="location.href = '/formVentas'" th:text="#{ventas.btn.add}"/>
+                        <button type="button" class="btn btn-primary" onclick="modifyOrDeleteProducto('modify')" th:text="#{ventas.btn.modify}"/>
+                        <button type="button" class="btn btn-primary" onclick="modifyOrDeleteProducto('delete')" th:text="#{ventas.btn.delete}" th:if="${isAdmin}"/>
+                        <button type="button" class="btn btn-primary" onclick="location.href = '/ventasDetalles'" th:text="#{ventas.btn.details}"/>
+                        <p>
+                        <div class="col-xs-2">
+                            <input type="search" class="form-control rounded" id="cuadro-busqueda" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon" onkeyup="buscar()" />
+                        </div>
+                    </div>
+                </div>
+                <table class="table" id="tabla-ventas">
+                    <thead class="titleTable">
+                        <tr>
+                            <th scope="col"/>
+                            <th scope="col" th:text="#{ventas.col.idsale}"/>
+                            <th scope="col" th:text="#{ventas.col.price}"/>
+                            <th scope="col" th:text="#{ventas.col.status}"/>
+                            <th scope="col" th:text="#{ventas.col.date}"/>
+                            <th scope="col" th:text="#{ventas.col.idclient}"/>
+                            <th scope="col" th:text="#{ventas.col.iduser}"/>
+                        </tr>
+                    </thead>
+                    <p>
+                    <tbody>
+                        <tr th:each="ordenes_de_venta : ${ordenVenta}">
+                            <td>
+                                <input type="checkbox" id="checkboxVentas" name="selectedCheckbox" th:value="${ordenes_de_venta.id_venta}" onclick="seleccionarUnicoCheckbox(this)"/>
+                            </td>    
+                            <td th:text="${ordenVenta.id_venta}"/>
+                            <td th:text="${ordenVenta.estado}"/>
+                            <td th:text="${ordenVenta.fecha_venta}"/>
+                            <td th:text="${ordenVenta.precio_total}"/>
+                            <td th:text="${ordenVenta.usuario}"/>
+                            <td th:text="${ordenVenta.cliente}"/>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <div th:include="~{menu :: sidebar}"></div>
+    </body>
+</html>

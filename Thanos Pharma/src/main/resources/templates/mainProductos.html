@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <table class="table" id="tabla-productos">
-                    <thead>
+                    <thead class="titleTable">
                         <tr>
                             <th scope="col"/>
                             <th scope="col" th:text="#{productos.col.id}"/>
@@ -46,7 +46,7 @@
                     <tbody>
                         <tr th:each="producto : ${productos}">
                             <td>
-                                <input type="checkbox" id="checkboxProducto" name="selectedProducto" th:value="${producto.codigoNacional}" onclick="seleccionarUnicoCheckbox(this)"/>
+                                <input type="checkbox" id="checkboxProducto" name="selectedCheckbox" th:value="${producto.codigoNacional}" onclick="seleccionarUnicoCheckbox(this)"/>
                             </td>    
                             <td th:text="${producto.codigoNacional}"/>
                             <td th:text="${producto.receta}"/>

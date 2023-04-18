@@ -3,48 +3,80 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
-<html>
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${#locale.language}">
     <head>
         <title>Formulario Productos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/grid/">
+        <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <!-- Custom styles for this template -->
+        <link href="/css/general.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <h2>Añadir Producto</h2>
+        <h2 class="cabecera">Añadir Producto</h2>
+        <button class="cabecera" onclick="window.location.href='/productos'"><- Volver</button>
+        <div class="container" id="containerFormGeneral">
+            <form th:action="@{/saveProduct}" method="post" th:object="${producto}">
+                <span th:if="${#fields.hasErrors()}" class="text-danger" id="id-error">Hay errores en el formulario:</span>
+                <ul th:if="${#fields.hasErrors()}" class="text-danger" id="id-error">
+                   <li th:each="error : ${#fields.errors()}" th:text="${error}"></li>
+                </ul>
+                <div class="row">
+                   <div class="col-md-6"> 
+                       <div class="form-group"> 
+                           <label for="codigoNacional" th:text="#{formProductos.id}"/>
+                           <input type="text" class="form-control" th:classappend="${#fields.hasErrors('codigoNacional')} ? 'is-invalid' : '' " name="codigoNacional" th:field="*{codigoNacional}">
+                       </div>
+                   </div>
+                   <div class="col-md-6 d-flex align-items-center"> 
+                       <div class="form-group">
+                           <label for="receta" th:text="#{formProductos.receta}"/>
+                           <input type="checkbox" class="form-check-input" name="receta" th:field="*{receta}"/> 
+                       </div>
+                   </div>
+                </div>
+                <div class="form-group">
+                    <label for="stock" th:text="#{formProductos.stock}"/>
+                    <input type="number" class="form-control" th:classappend="${#fields.hasErrors('stock')} ? 'is-invalid' : '' " name="stock" th:field="*{stock}"/> 
+                </div>
 
-        <a th:href="@{/productos}">Volver</a>
-        <p/>
+                <div class="form-group">
+                    <label for="nombreProducto" th:text="#{formProductos.name}"/>
+                    <input type="text" class="form-control" th:classappend="${#fields.hasErrors('nombreProducto')} ? 'is-invalid' : '' " name="nombreProducto" th:field="*{nombreProducto}"/> 
+                </div>
 
-        <form th:action="@{/saveProduct}" method="post" th:object="${producto}">
+                <div class="form-group">
+                    <label for="descripcion" th:text="#{formProductos.description}"/>
+                    <input type="text" class="form-control" th:classappend="${#fields.hasErrors('descripcion')} ? 'is-invalid' : '' " name="descripcion" th:field="*{descripcion}"/> 
+                </div>
 
-            <label for="codigoNacional">Código nacional:</label>
-            <input type="text" name="codigoNacional" th:field="*{codigoNacional}">
+                <div class="form-group">
+                    <label for="unidadesEmbalaje" th:text="#{formProductos.quantityPerPackage}"/>
+                    <input type="number" class="form-control" th:classappend="${#fields.hasErrors('unidadesEmbalaje')} ? 'is-invalid' : '' " name="unidadesEmbalaje" th:field="*{unidadesEmbalaje}"/> 
+                </div>
 
-            <label for="receta">Receta:</label>
-            <input type="text" name="receta" th:field="*{receta}"/>
+                <div class="form-group"> 
+                    <label for="dosis" th:text="#{formProductos.dose}"/>
+                    <input type="text" class="form-control" th:classappend="${#fields.hasErrors('dosis')} ? 'is-invalid' : '' " name="dosis" th:field="*{dosis}"/>
+                </div>
 
-            <label for="stock">Stock:</label>
-            <input type="text" name="stock" th:field="*{stock}"/>
+                <div class="form-group"> 
+                    <label for="precio" th:text="#{formProductos.price}"/>
+                    <input type="number" class="form-control" th:classappend="${#fields.hasErrors('precio')} ? 'is-invalid' : '' " name="precio" th:field="*{precio}"/>
+                </div>
 
-            <label for="nombreProducto">Nombre:</label>
-            <input type="text" name="nombreProducto" th:field="*{nombreProducto}"/>
+                <div class="form-group"> 
+                    <label for="iva" th:text="#{formProductos.iva}"/>
+                    <input type="number" class="form-control" th:classappend="${#fields.hasErrors('iva')} ? 'is-invalid' : '' "  name="iva" th:field="*{iva}"/>
+                </div>
 
-            <label for="descripcion">Descripción:</label>
-            <input type="text" name="descripcion" th:field="*{descripcion}"/>
-
-            <label for="unidadesEmbalaje">Unidades Embalaje:</label>
-            <input type="text" name="unidadesEmbalaje" th:field="*{unidadesEmbalaje}"/>
-
-            <label for="dosis">Dosis:</label>
-            <input type="text" name="dosis" th:field="*{dosis}"/>
-
-            <label for="precio">Precio:</label>
-            <input type="text" name="precio" th:field="*{precio}"/>
-
-            <label for="iva">IVA:</label>
-            <input type="text" name="iva" th:field="*{iva}"/>
-            <p/>
-            <input type="submit" name="enviar" value="Enviar datos"/>
-        </form>
+                <p/>
+                <p/>
+                <input type="submit" class="btn btn-primary" name="enviar" value="Enviar datos"/>
+            </form>
+        </div>
     </body>
 </html>

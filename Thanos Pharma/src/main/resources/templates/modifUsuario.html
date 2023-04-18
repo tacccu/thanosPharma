@@ -14,10 +14,10 @@
     <body>
         <main>
             <div class="container" id="containerFormGeneral">
-                <h1 th:text="#{modifUser.titol}"></h1>
+                <h1 th:text="#{modifUser.title}"></h1>
                 <form>
                     <div class="form-group">
-                        <label for="nombreModifUs" th:text="#{nomCom.lab.nom}"></label>
+                        <label for="nombreModifUs" th:text="#{nomCom.lab.name}"></label>
                         <input type="nombre" class="form-control" id="nombre" aria-describedby="emailHelp" placeholder="Introduzca el nombre">
                     </div>
                     <div class="form-group">
@@ -25,12 +25,13 @@
                         <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Introduzca el mail">
                     </div>
                     <div class="form-group">
-                        <label for="telefonoModifUs" th:text="#{nomCom.lab.telef}"></label>
+                        <label for="telefonoModifUs" th:text="#{nomCom.lab.phone}"></label>
                         <input type="telefono" class="form-control" id="telefono" aria-describedby="emailHelp" placeholder="Introduzca el teléfono">
                     </div>
                     <br><br>
-                    <button type="submit" class="btn btn-primary" th:text="#{nomCom.but.modificar}"></button>
+                    <button type="submit" class="btn btn-primary" th:text="#{nomCom.btn.modify}"></button>
                 </form>
         </main>
+        <div th:include="~{menu :: sidebar}"></div>
     </body>
 </html>

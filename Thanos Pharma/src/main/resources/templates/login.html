@@ -1,48 +1,52 @@
+<head>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
 <body>
-    <link rel="stylesheet" type="text/css" href="/model/style.css">
-    <script src="/model/script.js"></script>
-  <div class="container">
-    <div class="backbox">
-      <div class="loginMsg">
-        <div class="textcontent">
-          <p class="title">¿No tienes cuenta?</p>
-          <p>Regístrate a ThanosPharma!</p>
-          <button id="switch1">REGÍSTRATE</button>
-        </div>
-      </div>
-      <div class="signupMsg visibility">
-        <div class="textcontent">
-          <p class="title">¿Tienes cuenta ya?</p>
-          <p>Inicia sesión para ver tu colección</p>
-          <button id="switch2">INICIAR SESIÓN</button>
-        </div>
-      </div>
-    </div>    <!-- backbox -->
+    <form method="POST" th:action="@{/login}">
+        <div class="container">
+            <div class="backbox">
+                <div class="loginMsg">
+                    <div class="textcontent">
+                        <p class="title">¿No tienes cuenta?</p>
+                        <p>Regístrate a ThanosPharma!</p>
+                        <button id="switch1">REGÍSTRATE</button>
+                    </div>
+                </div>
+                <div class="signupMsg visibility">
+                    <div class="textcontent">
+                        <p class="title">¿Tienes cuenta ya?</p>
+                        <p>Inicia sesión para ver tu colección</p>
+                        <button id="switch2">INICIAR SESIÓN</button>
+                    </div>
+                </div>
+            </div>    <!-- backbox -->
 
-    <div class="frontbox">
-      <div class="login">
-        <h2>INICIAR SESIÓN</h2>
-        <div class="inputbox">
-          <input type="text" name="email" placeholder="  Correo electrónico">
-          <input type="password" name="contraseña" placeholder="  Contraseña">
-        </div>
-        <p>¿Has olvidado tu contraseña?</p>
-        <button>Continuar</button>
-      </div>
+            <div class="frontbox">
+                <div class="login">
+                    <h2>INICIAR SESIÓN</h2>
+                    <div class="inputbox">
+                        <label for="username">Usuario:</label>
+                        <input type="text" name="username" id="username"/>
+                        <label for="password">Contraseña:</label>
+                        <input type="password" name="password" id="password"/>
+                    </div>
+                    <p>¿Has olvidado tu contraseña?</p>
+                    <button type="submit" value="Login">Continuar</button>
+                </div>
 
-      <div class="signup hide">
-        <h2>REGÍSTRATE</h2>
-        <div class="inputbox">
-          <input type="text" name="fullname" placeholder="  Nombre completo">
-          <input type="text" name="email" placeholder="  Correo electrónico">
-          <input type="password" name="password" placeholder="  Contraseña">
-        </div>
-        <button>REGÍSTRATE</button>
-      </div>
+                <div class="signup hide">
+                    <h2>REGÍSTRATE</h2>
+                    <div class="inputbox">
+                        <input type="text" name="fullname" placeholder="  Nombre completo">
+                        <input type="text" name="email" placeholder="  Correo electrónico">
+                        <input type="password" name="password" placeholder="  Contraseña">
+                    </div>
+                    <button>REGÍSTRATE</button>
+                </div>
 
-    </div>
-    <!-- frontbox -->
-  </div>
+            </div>
+            <!-- frontbox -->
+        </div>
+    </form>
 </body>
-
 </html>

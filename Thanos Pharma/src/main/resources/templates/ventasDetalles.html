@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <title th:text="#{ventas.title}"></title>
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/grid/">
+        <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <!-- Custom styles for this template -->
+        <link href="/css/general.css" rel="stylesheet" type="text/css">
+        <script src="../model/functions.js"></script> 
+    </head>
+    <body>
+        <main>
+            <div class="container" id="listaMainVentas">
+                <button type="button" class="btn btn-primary" onclick="location.href = '/ventas'" th:text="#{ventas.btn.volver}"/>
+                <div class="container">
+                    <h1 th:text="#{ventasDetalles.title}"/>
+                    <div id="topListaMainVentas">
+                        <button type="button" class="btn btn-primary" onclick="location.href = '/formDetalleVentas'" th:text="#{ventas.btn.addDetails}"/>
+                        <button type="button" class="btn btn-primary" onclick="modifyOrDeleteProducto('modify')" th:text="#{ventas.btn.modifyDetails}"/>
+                        <button type="button" class="btn btn-primary" onclick="modifyOrDeleteProducto('delete')" th:text="#{ventas.btn.deleteDetails}" th:if="${isAdmin}"/>
+                        <p>
+                        <div class="col-xs-2">
+                            <input type="search" class="form-control rounded" id="cuadro-busqueda" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon" onkeyup="buscar()" />
+                        </div>
+                    </div>
+                </div>
+                <table class="table" id="tabla-ventas">
+                    <thead>
+                        <tr>
+                            <th scope="col"/>
+                            <th scope="col" th:text="#{ventasdetalles.col.saleorder}"/>
+                            <th scope="col" th:text="#{ventasdetalles.col.product}"/>
+                            <th scope="col" th:text="#{ventasdetalles.col.quantity}"/>
+                            <th scope="col" th:text="#{ventasdetalles.col.unitPrice}"/>
+                            <th scope="col" th:text="#{ventasdetalles.col.iva}"/>
+                            <th scope="col" th:text="#{ventasdetalles.col.totalProducts}"/>
+                        </tr>
+                    </thead>
+                    <p>
+                    <tbody>
+                        <tr th:each="venta : ${ventas}">
+                            <td>
+                                <input type="checkbox" id="checkboxVentasDetalles" name="selectedDetalleVentas" th:value="${detalle_venta.ordenVenta}" onclick="seleccionarUnicoCheckbox(this)"/>
+                            </td>    
+                            <td th:text="${ventasdetalles.col.saleorder}"/>
+                            <td th:text="${ventasdetalles.col.product}"/>
+                            <td th:text="${ventasdetalles.col.quantity}"/>
+                            <td th:text="${ventasdetalles.col.unitPrice}"/>
+                            <td th:text="${ventasdetalles.col.iva}"/>
+                            <td th:text="${ventasdetalles.col.totalProducts}"/>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <div th:include="~{menu :: sidebar}"></div>
+    </body>
+</html>

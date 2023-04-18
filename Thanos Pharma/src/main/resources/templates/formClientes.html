@@ -19,47 +19,75 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <body>
         <h2>Añadir Cliente</h2>
 
-        <a th:href="@{/mainClientes}">Volver</a>
+        <a th:href="@{/clientes}">Volver</a>
         <p/>
         <div class="container" id="containerFormGeneral"> 
             <form th:action="@{/saveClientes}" method="post" th:object="${cliente}">
-                <div class="form-group">
-                    <label for="TSE" th:text="#{forClient.tse}"/>
-                    <input type="text" class="form-control" name="TSE" th:field="*{TSE}" th:placeholder="#{forClient.ph.tse}">
+                <div class="form-group hide">
+                    <label for="id_cliente" th:text="#{forClient.id}"/>
+                    <input type="text" class="form-control" name="id_cliente" th:field="*{id_cliente}" th:placeholder="#{forClient.ph.idcliente}">
                 </div>
-                <div class="form-group">
+                <div class="form-group"
+                     th:classappend="${#fields.hasErrors('tse')} ? 'has-error'">
+                    <label for="tse" th:text="#{forClient.tse}"/>
+                    <input type="text" class="form-control" name="tse" th:field="*{tse}" th:placeholder="#{forClient.ph.tse}">
+                    <span th:if="${#fields.hasErrors('tse')}" th:errors="*{tse}"
+                          class="help-block" id="id-error">Errores</span>
+                </div>
+                <div class="form-group"
+                     th:classappend="${#fields.hasErrors('nombre')} ? 'has-error'">
                     <label for="nombre" th:text="#{forClient.name}"/>
                     <input type="text" class="form-control" name="nombre" th:field="*{nombre}" th:placeholder="#{forClient.ph.name}">
+                    <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"
+                          class="help-block" id="id-error">Errores</span>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group"
+                     th:classappend="${#fields.hasErrors('apellido')} ? 'has-error'">
                     <label for="apellido" th:text="#{forClient.surname}"/>
                     <input type="text" class="form-control" name="apellido" th:field="*{apellido}" th:placeholder="#{forClient.ph.surname}">
+                    <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"
+                          class="help-block" id="id-error">Errores</span>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group"
+                     th:classappend="${#fields.hasErrors('direccion')} ? 'has-error'">
                     <label for="direccion" th:text="#{forClient.location}"/>
                     <input type="text" class="form-control" name="direccion" th:field="*{direccion}" th:placeholder="#{forClient.ph.location}">
+                    <span th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"
+                          class="help-block" id="id-error">Errores</span>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group"
+                     th:classappend="${#fields.hasErrors('municipio')} ? 'has-error'">
                     <label for="municipio" th:text="#{forClient.town}"/>
                     <input type="text" class="form-control" name="municipio" th:field="*{municipio}" th:placeholder="#{forClient.ph.town}">
+                    <span th:if="${#fields.hasErrors('municipio')}" th:errors="*{municipio}"
+                          class="help-block" id="id-error">Errores</span>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group"
+                     th:classappend="${#fields.hasErrors('email')} ? 'has-error'">
                     <label for="email" th:text="#{forClient.email}"/>
                     <input type="text" class="form-control" name="email" th:field="*{email}" th:placeholder="#{forClient.ph.email}">
+                    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                          class="help-block" id="id-error">Errores</span>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group"
+                     th:classappend="${#fields.hasErrors('codigo_postal')} ? 'has-error'">
                     <label for="cp" th:text="#{forClient.postal}"/>
-                    <input type="text" class="form-control" name="cp" th:field="*{cp}" th:placeholder="#{forClient.ph.postal}">
+                    <input type="text" class="form-control" name="codigo_postal" th:field="*{codigo_postal}" th:placeholder="#{forClient.ph.postal}">
+                    <span th:if="${#fields.hasErrors('codigo_postal')}" th:errors="*{codigo_postal}"
+                          class="help-block" id="id-error">Errores</span>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group"
+                     th:classappend="${#fields.hasErrors('telefono')} ? 'has-error'">
                     <label for="telefono" th:text="#{forClient.phone}"/>
                     <input type="text" class="form-control" name="telefono" th:field="*{telefono}" th:placeholder="#{forClient.ph.phone}">
+                    <span th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"
+                          class="help-block" id="id-error">Errores</span>
                 </div>
                 <p/>
                 <br><br>
