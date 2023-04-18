@@ -26,6 +26,8 @@ public class Producto implements Serializable {
 
     private static final long serialVersionUID = 1l;
     @Id
+    @Min(value = 100000, message = "El codigo nacional no puede ser un número menor a 100000") 
+    @Max(value = 999999, message = "El codigo nacional no puede ser un número mayor a 999999") 
     private int codigoNacional;
     
     private boolean receta;
