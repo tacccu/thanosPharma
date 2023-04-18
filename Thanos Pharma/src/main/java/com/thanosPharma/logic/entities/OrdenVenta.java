@@ -23,14 +23,15 @@ public class OrdenVenta implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int idVenta;
+    Long id_venta;
 
     Usuario usuario;
     Cliente cliente;
 
-    double precioTotal;
+    double precio_total;
     String estado;
-    Date fechaVenta;
+    Date fecha_venta;
+    
 
     @OneToMany//Verificar primero el tipo de cascade(cascade = {CascadeType.ALL})
     private List<DetalleVenta> detallesVentaList;

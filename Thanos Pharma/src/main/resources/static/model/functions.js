@@ -130,5 +130,88 @@ function modifyOrDeleteCliente(action) {
 
         alert('Por favor, seleccione un cliente.');
     }
+
+    //Ventas
+
+    function buscarVenta() {
+        var valorBuscado = document.getElementById("cuadro-busqueda").value.toLowerCase();
+        var tablaClientes = document.getElementById("tabla-ventas");
+        var filas = tablaClientes.getElementsByTagName("tr");
+        for (var i = 1; i < filas.length; i++) {
+            var celdas = filas[i].getElementsByTagName("td");
+            var filaVisible = false;
+            for (var j = 0; j < celdas.length; j++) {
+                var contenidoCelda = celdas[j].textContent.toLowerCase();
+                if (contenidoCelda.indexOf(valorBuscado) > -1) {
+                    filaVisible = true;
+                    break;
+                }
+            }
+            if (filaVisible) {
+                filas[i].style.display = "";
+            } else {
+                filas[i].style.display = "none";
+            }
+        }
+    }
+
+    function seleccionarUnicoCheckboxVenta(currentCheckbox) {
+
+        var checkboxes = document.getElementsByName('selectedVenta');
+
+        for (var i = 0; i < checkboxes.length; i++) {
+
+            if (checkboxes[i] !== currentCheckbox) {
+
+                checkboxes[i].checked = false;
+            }
+        }
+    }
+
+    function modifyOrDeleteVenta(action) {
+
+        var checkbox = document.querySelector('input[name="selectedVenta"]:checked');
+
+        if (checkbox) {
+
+            var id_venta = checkbox.value;
+
+            switch (action) {
+                case 'modify':
+                    window.location.href = '/modifyVenta/' + id_venta;
+                    break;
+                case 'delete':
+                    if (confirm("¿Estás seguro de que quieres eliminar este cliente?")) {
+                        window.location.href = '/deleteVenta/' + id_venta;
+                    }
+                    break;
+            }
+        } else {
+
+            alert('Por favor, seleccione una venta.');
+        }
+
+    }
+
+
+    const logoutButton = document.getElementById("logout");
+
+    logoutButton.addEventListener("click", () => {
+        fetch("/logout")
+                .then(response => {
+                    if (response.ok) {
+                        // redirigir a la página de inicio de sesión o a otra página
+                        window.location.href = "/login";
+                    } else {
+                        throw new Error("No se pudo cerrar la sesión");
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+    });
+
+
 }
+
 

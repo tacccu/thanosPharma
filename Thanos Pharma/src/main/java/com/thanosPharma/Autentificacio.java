@@ -5,6 +5,8 @@
 package com.thanosPharma;
 
 import Utils.Encoder;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -41,14 +43,24 @@ public class Autentificacio {
 
         return http.authorizeHttpRequests((requests) -> requests
                 .requestMatchers(resources).permitAll()
-                .requestMatchers("/productos").hasAnyAuthority("bena")
+                .requestMatchers("/productos").hasAnyAuthority("admin")
                 .anyRequest().authenticated()
         )
-                .formLogin((form) -> form
-                .loginPage("/login")
-                .loginProcessingUrl("/login")
-                .permitAll()
+                .formLogin((form) -> {
+            try {
+                form
+                        .loginPage("/login")
+                        .loginProcessingUrl("/login")
+                        .permitAll()
+                        .and().logout().logoutSuccessUrl("/").permitAll();
+            } catch (Exception ex) {
+                Logger.getLogger(Autentificacio.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+                        
                 )
+                
+                
                 .exceptionHandling((exception) -> exception
                 .accessDeniedPage("/template/error403"))
                 .build();
