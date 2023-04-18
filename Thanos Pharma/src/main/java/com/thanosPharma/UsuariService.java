@@ -41,8 +41,10 @@ public class UsuariService implements UserDetailsService {
             throw new UsernameNotFoundException(username);
 
         }
+        
+        
         var rols = new ArrayList<GrantedAuthority>();
-
+        
         for (Rol rol : usuari.getRols()) {
             rols.add(new SimpleGrantedAuthority(rol.getNom()));
             System.out.println(rol);

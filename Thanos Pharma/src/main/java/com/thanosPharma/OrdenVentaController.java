@@ -4,12 +4,16 @@
  */
 package com.thanosPharma;
 
+
+import com.thanosPharma.logic.entities.OrdenVenta;
 import com.thanosPharma.logic.services.OrdenVentaService;
-import com.thanosPharma.logic.services.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
 
 /**
  *
@@ -23,21 +27,21 @@ public class OrdenVentaController {
 
     @GetMapping("/ventas")
     public String homeVentas(Model model) {
-
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        boolean isAdmin = auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("admin"));
+        model.addAttribute("isAdmin", isAdmin);
 
         return "mainVentas";
     }
-    
-    @GetMapping("/formVentas")
-    public String formVentas(Model model) {
 
+    @GetMapping("/formVentas")
+    public String formVentas(OrdenVenta ordenVenta) {
 
         return "formVentas";
     }
-    
-    @GetMapping("/ventasDetalles")
-    public String homeProductos(Model model) {
 
+    @GetMapping("/ventasDetalles")
+    public String homeProductos(OrdenVenta ordenVenta) {
 
         return "ventasDetalles";
     }
