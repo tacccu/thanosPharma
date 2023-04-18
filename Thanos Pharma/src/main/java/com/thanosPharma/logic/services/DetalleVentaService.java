@@ -36,4 +36,8 @@ public class DetalleVentaService implements DetalleVentaServiceInterface {
         return (List<DetalleVenta>) detalleVentaDAO.findAll();
     }
 
+    @Transactional(readOnly = true)
+    public DetalleVenta searchSaleDetails(DetalleVenta detalleVenta) {
+        return detalleVentaDAO.findById(detalleVenta.getOrdenVenta()).orElse(null);
+    }
 }

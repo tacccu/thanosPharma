@@ -20,30 +20,48 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <p/>
         <button class="cabecera" onclick="window.location.href = '/ventasDetalles'"><- Volver</button>
         <div class="container" id="containerFormGeneral">
-            <form th:action="@{/guardar}" method="post" th:object="${detalleVenta}">
+            <form th:action="@{/saveVentasDetalles}" method="post" th:object="${detalleVenta}">
                 <div class="form-group"> 
                     <label for="ordenVenta" th:text="#{ventasdetalles.col.saleorder}"/>
-                    <input type="text"  class="form-control" name="ordenVenta" th:field="*{ordenVenta}"/>
+                    <input type="text"  class="form-control" name="ordenVenta" th:field="*{ordenVenta}" 
+                           th:classappend="${#fields.hasErrors('ordenVenta')} ? 'is-invalid' : '' "/>
+                    <span th:if="${#fields.hasErrors('ordenVenta')}" th:errors="*{ordenVenta}"
+                          class="help-block" id="id-error"/>
                 </div>
                 <div class="form-group"> 
                     <label for="producto" th:text="#{ventasdetalles.col.product}"/>
-                    <input type="text"  class="form-control" name="producto" th:field="*{producto}"/>
+                    <input type="text"  class="form-control" name="producto" th:field="*{producto}" 
+                           th:classappend="${#fields.hasErrors('producto')} ? 'is-invalid' : '' "/>
+                    <span th:if="${#fields.hasErrors('producto')}" th:errors="*{producto}"
+                          class="help-block" id="id-error"/>
                 </div>
                 <div class="form-group"> 
                     <label for="cantidad" th:text="#{ventasdetalles.col.quantity}"/>
-                    <input type="text" class="form-control" name="cantidad" th:field="*{cantidad}"/>
+                    <input type="text" class="form-control" name="cantidad" th:field="*{cantidad}" 
+                           th:classappend="${#fields.hasErrors('cantidad')} ? 'is-invalid' : '' "/>
+                    <span th:if="${#fields.hasErrors('cantidad')}" th:errors="*{cantidad}"
+                          class="help-block" id="id-error"/>
                 </div>
                 <div class="form-group"> 
                     <label for="precioUnitario" th:text="#{ventasdetalles.col.unitPrice}"/>
-                    <input type="text" class="form-control" name="precioUnitario" th:field="*{precioUnitario}"/>
+                    <input type="text" class="form-control" name="precioUnitario" th:field="*{precioUnitario}" 
+                           th:classappend="${#fields.hasErrors('precioUnitario')} ? 'is-invalid' : '' "/>
+                    <span th:if="${#fields.hasErrors('precioUnitario')}" th:errors="*{precioUnitario}"
+                          class="help-block" id="id-error"/>
                 </div>
                 <div class="form-group"> 
                     <label for="iva" th:text="#{ventasdetalles.col.iva}"/>
-                    <input type="text" class="form-control" name="iva" th:field="*{iva}"/>
+                    <input type="text" class="form-control" name="iva" th:field="*{iva}" 
+                           th:classappend="${#fields.hasErrors('iva')} ? 'is-invalid' : '' "/>
+                    <span th:if="${#fields.hasErrors('iva')}" th:errors="*{iva}"
+                          class="help-block" id="id-error"/>
                 </div>
                 <div class="form-group"> 
                     <label for="totalProductos" th:text="#{ventasdetalles.col.totalProducts}"/>
-                    <input type="text" class="form-control" name="totalProductos" th:field="*{totalProducto}"/>
+                    <input type="text" class="form-control" name="totalProductos" th:field="*{totalProducto}" 
+                           th:classappend="${#fields.hasErrors('totalProductos')} ? 'is-invalid' : '' "/>
+                    <span th:if="${#fields.hasErrors('totalProductos')}" th:errors="*{totalProductos}"
+                          class="help-block" id="id-error"/>
                 </div>
 
                 <p/>

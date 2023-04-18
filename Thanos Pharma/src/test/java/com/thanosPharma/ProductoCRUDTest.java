@@ -24,13 +24,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ProductoCRUDTest {
+
     @Autowired
     private ProductoService productoService;
-    
+
     private Producto producto;
 
     @BeforeEach
-    void inicializar(){
+    void inicializar() {
         producto = new Producto();
         producto.setCodigoNacional(123456);
         producto.setDescripcion("Nueva formula activa para evitar los dolores de cabeza.");
@@ -42,33 +43,33 @@ public class ProductoCRUDTest {
         producto.setStock(3000);
         producto.setUnidadesEmbalaje(1);
     }
-        
+
     @DisplayName("JUnit test para verificar la creación de un nuevo producto")
     @Test
     @Order(1)
-    public void crearNuevoProductoTest(){
-         productoService.saveProduct(producto);
-         Assertions.assertThat(productoService.searchProduct(producto)).as("crearNuevoProductoTest - El producto guardado no está en la bbdd").isNotNull();
+    public void crearNuevoProductoTest() {
+        productoService.saveProduct(producto);
+        Assertions.assertThat(productoService.searchProduct(producto)).as("crearNuevoProductoTest - El producto guardado no está en la bbdd").isNotNull();
     }
-    
+
     @DisplayName("JUnit test para verificar la búsqueda de todos los productos")
     @Test
     @Order(2)
-    public void listProductosTest(){
+    public void listProductosTest() {
         List<Producto> productosBBDD = productoService.listProductos();
         Producto productoBuscado = productosBBDD.stream()
-                                                .filter(p -> p.getCodigoNacional() == producto.getCodigoNacional())
-                                                .findFirst()
-                                                .orElse(null);
+                .filter(p -> p.getCodigoNacional() == producto.getCodigoNacional())
+                .findFirst()
+                .orElse(null);
         Assertions.assertThat(productoBuscado).as("listProductosTest - Uno de los productos esperados no está en la bbdd").isNotNull();
     }
-    
+
     @DisplayName("JUnit test para verificar la eliminación de un producto")
     @Test
     @Order(3)
-    public void borrarProductoTest(){
+    public void borrarProductoTest() {
         productoService.deleteProduct(producto);
         Assertions.assertThat(productoService.searchProduct(producto)).as("borrarProductoTest - El producto eliminado debería ser null").isNull();
     }
-    
+
 }

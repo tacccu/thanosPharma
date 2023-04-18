@@ -5,6 +5,7 @@
 package com.thanosPharma.logic.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
@@ -25,11 +26,20 @@ public class OrdenVenta implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id_venta;
 
+    @NotNull(message = "El campo de usuario ha de tener algún valor") 
     Usuario usuario;
+    
+    @NotNull(message = "El campo de cliente ha de tener algún valor") 
     Cliente cliente;
 
+    @NotNull(message = "El precio total no puede ser nulo") 
     double precio_total;
+    
+    @NotNull(message = "El estado ha de tener algún valor") 
     String estado;
+    
+    
+    @NotNull(message = "Debes añadir una fecha válida") 
     Date fecha_venta;
     
 
