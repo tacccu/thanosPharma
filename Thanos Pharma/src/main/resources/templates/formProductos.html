@@ -17,61 +17,74 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
     <body>
         <h2 class="cabecera">Añadir/Modificar Producto</h2>
-        <button class="cabecera" onclick="window.location.href='/productos'"><- Volver</button>
+        <button class="cabecera" onclick="window.location.href = '/productos'"><- Volver</button>
         <div class="container" id="containerFormGeneral">
             <form th:action="@{/saveProduct}" method="post" th:object="${producto}">
-                <span th:if="${#fields.hasErrors()}" class="text-danger" id="id-error">Hay errores en el formulario:</span>
-                <ul th:if="${#fields.hasErrors()}" class="text-danger" id="id-error">
-                   <li th:each="error : ${#fields.errors()}" th:text="${error}"></li>
-                </ul>
+
                 <div class="row">
-                   <div class="col-md-6"> 
-                       <div class="form-group"> 
-                           <label for="codigoNacional" th:text="#{formProductos.id}"/>
-                           <input type="text" class="form-control" th:classappend="${#fields.hasErrors('codigoNacional')} ? 'is-invalid' : '' " 
-                                  name="codigoNacional" th:field="*{codigoNacional}" th:readonly="${isAModification}">
-                       </div>
-                   </div>
-                   <div class="col-md-6 d-flex align-items-center"> 
-                       <div class="form-group">
-                           <label for="receta" th:text="#{formProductos.receta}"/>
-                           <input type="checkbox" class="form-check-input" name="receta" th:field="*{receta}"/> 
-                       </div>
-                   </div>
+                    <div class="col-md-6"> 
+                        <div class="form-group"> 
+                            <label for="codigoNacional" th:text="#{formProductos.id}"/>
+                            <input type="text" class="form-control" th:classappend="${#fields.hasErrors('codigoNacional')} ? 'is-invalid' : '' " 
+                                   name="codigoNacional" th:field="*{codigoNacional}" th:readonly="${isAModification}">
+                            <span th:if="${#fields.hasErrors('codigoNacional')}" th:errors="*{codigoNacional}"
+                                  class="help-block" id="id-error"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-flex align-items-center"> 
+                        <div class="form-group">
+                            <label for="receta" th:text="#{formProductos.receta}"/>
+                            <input type="checkbox" class="form-check-input" name="receta" th:field="*{receta}"/> 
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="stock" th:text="#{formProductos.stock}"/>
                     <input type="number" class="form-control" th:classappend="${#fields.hasErrors('stock')} ? 'is-invalid' : '' " name="stock" th:field="*{stock}"/> 
+                    <span th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}"
+                          class="help-block" id="id-error"></span>
                 </div>
 
                 <div class="form-group">
                     <label for="nombreProducto" th:text="#{formProductos.name}"/>
                     <input type="text" class="form-control" th:classappend="${#fields.hasErrors('nombreProducto')} ? 'is-invalid' : '' " name="nombreProducto" th:field="*{nombreProducto}"/> 
+                    <span th:if="${#fields.hasErrors('nombreProducto')}" th:errors="*{nombreProducto}"
+                          class="help-block" id="id-error"></span>
                 </div>
 
                 <div class="form-group">
                     <label for="descripcion" th:text="#{formProductos.description}"/>
                     <input type="text" class="form-control" th:classappend="${#fields.hasErrors('descripcion')} ? 'is-invalid' : '' " name="descripcion" th:field="*{descripcion}"/> 
+                    <span th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"
+                          class="help-block" id="id-error"></span>
                 </div>
 
                 <div class="form-group">
                     <label for="unidadesEmbalaje" th:text="#{formProductos.quantityPerPackage}"/>
                     <input type="number" class="form-control" th:classappend="${#fields.hasErrors('unidadesEmbalaje')} ? 'is-invalid' : '' " name="unidadesEmbalaje" th:field="*{unidadesEmbalaje}"/> 
+                    <span th:if="${#fields.hasErrors('unidadesEmbalaje')}" th:errors="*{unidadesEmbalaje}"
+                          class="help-block" id="id-error"></span>
                 </div>
 
                 <div class="form-group"> 
                     <label for="dosis" th:text="#{formProductos.dose}"/>
                     <input type="text" class="form-control" th:classappend="${#fields.hasErrors('dosis')} ? 'is-invalid' : '' " name="dosis" th:field="*{dosis}"/>
+                    <span th:if="${#fields.hasErrors('dosis')}" th:errors="*{dosis}"
+                          class="help-block" id="id-error"></span>
                 </div>
 
                 <div class="form-group"> 
                     <label for="precio" th:text="#{formProductos.price}"/>
                     <input type="number" class="form-control" th:classappend="${#fields.hasErrors('precio')} ? 'is-invalid' : '' " name="precio" th:field="*{precio}" step="any"/>
+                    <span th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"
+                          class="help-block" id="id-error"></span>
                 </div>
 
                 <div class="form-group"> 
                     <label for="iva" th:text="#{formProductos.iva}"/>
                     <input type="number" class="form-control" th:classappend="${#fields.hasErrors('iva')} ? 'is-invalid' : '' "  name="iva" th:field="*{iva}"/>
+                    <span th:if="${#fields.hasErrors('iva')}" th:errors="*{iva}"
+                          class="help-block" id="id-error"></span>
                 </div>
 
                 <p/>
