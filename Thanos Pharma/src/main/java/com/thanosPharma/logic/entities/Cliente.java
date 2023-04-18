@@ -28,26 +28,26 @@ public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_cliente;
-    @NotEmpty
-    @Size(min = 12, max = 13, message="${formClientes.error.tse}, debe introducir 12 carácteres")
+    @NotEmpty(message="Debe introducir una tarjeta sanitaria")
+    @Size(min = 12, max = 13, message="Debe introducir 12 carácteres")
     private String tse;
-    @NotEmpty(message="${formClientes.error.nombre}, Debe introducir un nombre válido")
+    @NotEmpty(message="Debe introducir un nombre válido")
     private String nombre;
-    @NotEmpty(message="${formClientes.error.apellido}, Debe introducir un apellido válido")
+    @NotEmpty(message="Debe introducir un apellido válido")
     private String apellido;
-    @NotEmpty(message="${formClientes.error.direccion}, Debe introducir una dirección válida")
+    @NotEmpty(message="Debe introducir una dirección válida")
     private String direccion;
-    @NotEmpty(message="${formClientes.error.municipio}, Debe introducir un municipio válido")
+    @NotEmpty(message="Debe introducir un municipio válido")
     private String municipio;
-    @NotEmpty
-    @Email(message="${formClientes.error.email}, Introduzca un mail válido")
+    @NotEmpty(message="Introduzca un mail válido")
+    @Email(message="Introduzca un mail válido")
     private String email;
-    @NotNull
-    @Min(11111)
-    @Max(value=99999, message="${formClientes.error.codigo_postal}, Introduzca 5 digitos pertenecientes al CP del cliente")
+    @NotNull(message="Introduzca 5 digitos pertenecientes al CP del cliente")
+    @Min(value=11111, message="Introduzca 5 digitos pertenecientes al CP del cliente")
+    @Max(value=99999, message="Introduzca 5 digitos pertenecientes al CP del cliente")
     private int codigo_postal;
-    @NotNull
-    @Min(11111111)
-    @Max(value=999999999, message="${formClientes.error.nombre}, Introduzca un número de teléfono válido")
+    @NotNull(message="Introduzca un número de teléfono válido")
+    @Min(value=11111111, message="Introduzca un número de teléfono válido")
+    @Max(value=999999999, message="Introduzca un número de teléfono válido")
     private int telefono;
 }
