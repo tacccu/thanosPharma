@@ -42,10 +42,15 @@ body {
 }
 
 .hide{
-  display: none;
+    display: none;
 }
 
 .cabecera {
     margin-top: 1%;
     margin-left: 10%;
+}
+
+.help-block{
+    /*border: 1px solid red;*/
+    color: red;
 }

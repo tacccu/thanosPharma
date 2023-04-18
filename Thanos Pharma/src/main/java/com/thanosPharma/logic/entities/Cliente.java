@@ -28,26 +28,26 @@ public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_cliente;
-    @NotEmpty
-    @Size(min = 12, max = 12, message="${formClientes.error.tse}, debe introducir 12 carácteres")
+    @NotEmpty(message="Debe introducir una tarjeta sanitaria")
+    @Size(min = 12, max = 13, message="Debe introducir 12 carácteres")
     private String tse;
-    @NotEmpty(message="${formClientes.error.nombre}")
+    @NotEmpty(message="Debe introducir un nombre válido")
     private String nombre;
-    @NotEmpty(message="${formClientes.error.apellido}")
+    @NotEmpty(message="Debe introducir un apellido válido")
     private String apellido;
-    @NotEmpty(message="${formClientes.error.direccion}")
+    @NotEmpty(message="Debe introducir una dirección válida")
     private String direccion;
-    @NotEmpty(message="${formClientes.error.municipio}")
+    @NotEmpty(message="Debe introducir un municipio válido")
     private String municipio;
-    @NotEmpty
-    @Email(message="${formClientes.error.email}")
+    @NotEmpty(message="Introduzca un mail válido")
+    @Email(message="Introduzca un mail válido")
     private String email;
-    @NotNull
-    @Min(5)
-    @Max(value=5, message="${formClientes.error.codigo_postal}")
+    @NotNull(message="Introduzca 5 digitos pertenecientes al CP del cliente")
+    @Min(value=11111, message="Introduzca 5 digitos pertenecientes al CP del cliente")
+    @Max(value=99999, message="Introduzca 5 digitos pertenecientes al CP del cliente")
     private int codigo_postal;
-    @NotNull
-    @Min(9)
-    @Max(value=9, message="${formClientes.error.nombre}")
+    @NotNull(message="Introduzca un número de teléfono válido")
+    @Min(value=11111111, message="Introduzca un número de teléfono válido")
+    @Max(value=999999999, message="Introduzca un número de teléfono válido")
     private int telefono;
 }
