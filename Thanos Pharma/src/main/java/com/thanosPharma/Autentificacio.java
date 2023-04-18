@@ -47,20 +47,14 @@ public class Autentificacio {
                 .anyRequest().authenticated()
         )
                 .formLogin((form) -> {
-            try {
-                form
-                        .loginPage("/login")
-                        .loginProcessingUrl("/login")
-                        .permitAll()
-                        .and().logout().logoutSuccessUrl("/").permitAll();
-            } catch (Exception ex) {
-                Logger.getLogger(Autentificacio.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-                        
+                    form
+                            .loginPage("/login")
+                            .loginProcessingUrl("/login")
+                            .permitAll();
+                            
+
+                }
                 )
-                
-                
                 .exceptionHandling((exception) -> exception
                 .accessDeniedPage("/template/error403"))
                 .build();

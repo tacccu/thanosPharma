@@ -194,24 +194,6 @@ function modifyOrDeleteCliente(action) {
     }
 
 
-    const logoutButton = document.getElementById("logout");
-
-    logoutButton.addEventListener("click", () => {
-        fetch("/logout")
-                .then(response => {
-                    if (response.ok) {
-                        // redirigir a la página de inicio de sesión o a otra página
-                        window.location.href = "/login";
-                    } else {
-                        throw new Error("No se pudo cerrar la sesión");
-                    }
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-    });
-
-
 }
 
 
