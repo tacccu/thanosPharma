@@ -19,12 +19,12 @@
                     <h1 th:text="#{ventas.title}"/>
                     <div id="topListaMainCliente">
                         <button type="button" class="btn btn-primary" onclick="location.href = '/formVentas'" th:text="#{ventas.btn.add}"/>
-                        <button type="button" class="btn btn-primary" onclick="modifyOrDeleteProducto('modify')" th:text="#{ventas.btn.modify}"/>
-                        <button type="button" class="btn btn-primary" onclick="modifyOrDeleteProducto('delete')" th:text="#{ventas.btn.delete}" th:if="${isAdmin}"/>
+                        <button type="button" class="btn btn-primary" onclick="modifyOrDeleteVenta('modify')" th:text="#{ventas.btn.modify}"/>
+                        <button type="button" class="btn btn-primary" onclick="modifyOrDeleteVenta('delete')" th:text="#{ventas.btn.delete}" th:if="${isAdmin}"/>
                         <button type="button" class="btn btn-primary" onclick="location.href = '/ventasDetalles'" th:text="#{ventas.btn.details}"/>
                         <p>
                         <div class="col-xs-2">
-                            <input type="search" class="form-control rounded" id="cuadro-busqueda" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon" onkeyup="buscar()" />
+                            <input type="search" class="form-control rounded" id="cuadro-busqueda" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon" onkeyup="buscarVenta()" />
                         </div>
                     </div>
                 </div>
@@ -42,9 +42,9 @@
                     </thead>
                     <p>
                     <tbody>
-                        <tr th:each="ordenes_de_venta : ${ordenVenta}">
+                        <tr th:each="ordenVenta : ${ordenes_de_venta}">
                             <td>
-                                <input type="checkbox" id="checkboxVentas" name="selectedCheckbox" th:value="${ordenes_de_venta.id_venta}" onclick="seleccionarUnicoCheckbox(this)"/>
+                                <input type="checkbox" id="checkboxVentas" name="selectedVenta" th:value="${ordenVenta.id_venta}" onclick="seleccionarUnicoCheckboxVenta(this)"/>
                             </td>    
                             <td th:text="${ordenVenta.id_venta}"/>
                             <td th:text="${ordenVenta.estado}"/>

@@ -24,24 +24,23 @@ public class OrdenVenta implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull(message = "El id de venta no puede ser nulo")
     Long id_venta;
 
-    @NotNull(message = "El campo de usuario ha de tener algún valor") 
+    @NotNull(message = "El campo de usuario no puede ser nulo")
     Usuario usuario;
-    
-    @NotNull(message = "El campo de cliente ha de tener algún valor") 
+
+    @NotNull(message = "El campo de cliente no puede ser nulo")
     Cliente cliente;
 
-    @NotNull(message = "El precio total no puede ser nulo") 
+    @NotNull(message = "El precio total no puede ser nulo")
     double precio_total;
-    
-    @NotNull(message = "El estado ha de tener algún valor") 
+
+    @NotNull(message = "El estado ha de tener algún valor")
     String estado;
+
     
-    
-    @NotNull(message = "Debes añadir una fecha válida") 
     Date fecha_venta;
-    
 
     @OneToMany//Verificar primero el tipo de cascade(cascade = {CascadeType.ALL})
     private List<DetalleVenta> detallesVentaList;
