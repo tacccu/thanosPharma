@@ -61,6 +61,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <span th:if="${#fields.hasErrors('fecha_venta')}" th:errors="*{fecha_venta}"
                           class="help-block" id="id-error"/>
                 </div>
+                <div class="form-group">
+                    <label for="ordenes_de_ventacol" th:text="#{forVentas.ordenventa}"/>
+                    <input type="text" class="form-control" name="ordenes_de_ventacol" th:field="*{ordenes_de_ventacol}" th:placeholder="#{forVentas.ph.ordenVenta}" 
+                           th:classappend="${#fields.hasErrors('ordenes_de_ventacol')} ? 'is-invalid' : '' "/>
+                    <span th:if="${#fields.hasErrors('ordenes_de_ventacol')}" th:errors="*{ordenes_de_ventacol}"
+                          class="help-block" id="id-error"/>
+                </div>
 
                 <div class="form-group">
                     <label for="precio_total" th:text="#{forVentas.precio}"/>

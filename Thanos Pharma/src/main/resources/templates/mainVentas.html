@@ -36,20 +36,22 @@
                             <th scope="col" th:text="#{ventas.col.price}"/>
                             <th scope="col" th:text="#{ventas.col.status}"/>
                             <th scope="col" th:text="#{ventas.col.date}"/>
+                            <th scope="col" th:text="#{ventas.col.saleorder}"/>
                             <th scope="col" th:text="#{ventas.col.idclient}"/>
                             <th scope="col" th:text="#{ventas.col.iduser}"/>
                         </tr>
                     </thead>
                     <p>
                     <tbody>
-                        <tr th:each="ordenVenta : ${ordenes_de_venta}">
+                        <tr th:each="ordenVenta : ${ventas}">
                             <td>
-                                <input type="checkbox" id="checkboxVentas" name="selectedVenta" th:value="${ordenVenta.id_venta}" onclick="seleccionarUnicoCheckboxVenta(this)"/>
+                                 <input type="checkbox" id="checkboxVentas" name="selectedVenta" th:value="${ordenVenta.id_venta}" onclick="seleccionarUnicoCheckboxVenta(this)"/>
                             </td>    
                             <td th:text="${ordenVenta.id_venta}"/>
                             <td th:text="${ordenVenta.estado}"/>
                             <td th:text="${ordenVenta.fecha_venta}"/>
                             <td th:text="${ordenVenta.precio_total}"/>
+                            <td th:text="${ordenVenta.ordenes_de_ventacol}"/>
                             <td th:text="${ordenVenta.usuario}"/>
                             <td th:text="${ordenVenta.cliente}"/>
                         </tr>

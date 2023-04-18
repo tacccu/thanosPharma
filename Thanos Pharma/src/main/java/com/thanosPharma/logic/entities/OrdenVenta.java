@@ -25,7 +25,7 @@ public class OrdenVenta implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull(message = "El id de venta no puede ser nulo")
-    Long id_venta;
+    int id_venta;
 
     @NotNull(message = "El campo de usuario no puede ser nulo")
     Usuario usuario;
@@ -39,6 +39,8 @@ public class OrdenVenta implements Serializable {
     @NotNull(message = "El estado ha de tener algún valor")
     String estado;
 
+    @NotNull(message = "El orden de venta ha de tener algún valor")
+    String ordenes_de_ventacol;
     
     Date fecha_venta;
 

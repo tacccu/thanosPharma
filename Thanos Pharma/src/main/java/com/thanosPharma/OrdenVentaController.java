@@ -33,7 +33,8 @@ public class OrdenVentaController {
     public String homeVentas(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         boolean isAdmin = auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("admin"));
-        model.addAttribute("isAdmin", isAdmin);
+        model.addAttribute("isAdmin", isAdmin);     
+        //model.addAttribute("ventas", ordenVentaService.listOrdenesVenta());
 
         return "mainVentas";
     }
@@ -57,7 +58,7 @@ public class OrdenVentaController {
         }
         ordenVentaService.guardar(ordenVenta);
 
-        return "redirect:/ventas";
+        return "redirect:/mainVentas";
     }
     
     @GetMapping("/modifyVentas/{id_venta}")

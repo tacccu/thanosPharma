@@ -10,7 +10,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.event.TransactionalEventListener;
 
 /**
  *
@@ -33,7 +32,8 @@ public class OrdenVentaService implements OrdenVentaServiceInterface {
 
     @Override
     public List<OrdenVenta> listOrdenesVenta() {
-        return (List<OrdenVenta>) ordenVentaDAO.findAll();    }
+        return (List<OrdenVenta>) ordenVentaDAO.findAll();    
+    }
     
     @Transactional(readOnly = true)
     public OrdenVenta searchSale(OrdenVenta ordenVenta) {
