@@ -44,7 +44,7 @@ public class OrdenVentaController {
     }
 
     @GetMapping("/ventasDetalles")
-    public String homeProductos(OrdenVenta ordenVenta) {
+    public String homeVentas(OrdenVenta ordenVenta) {
 
         return "ventasDetalles";
     }
