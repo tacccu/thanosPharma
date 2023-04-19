@@ -47,7 +47,7 @@ public class Cliente implements Serializable {
     @Max(value=99999, message="Introduzca 5 digitos pertenecientes al CP del cliente")
     private int codigo_postal;
     @NotNull(message="Introduzca un número de teléfono válido")
-    @Min(value=11111111, message="Introduzca un número de teléfono válido")
+    @Min(value=111111111, message="Introduzca un número de teléfono válido")
     @Max(value=999999999, message="Introduzca un número de teléfono válido")
     private int telefono;
 }

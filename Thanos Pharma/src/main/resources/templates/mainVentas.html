@@ -23,7 +23,7 @@
                         <button type="button"  class="btn btn-primary" onclick="modifyOrDeleteProducto('delete')" th:text="#{ventas.btn.delete}" sec:authorize="hasAnyAuthority('admin')"/>
                     </div>
                         <div class="col-xs-2">
-                            <input type="search" class="form-control rounded" id="cuadro-busqueda" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon" onkeyup="buscar()" />
+                            <input type="search" class="form-control rounded" id="cuadro-busqueda" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon" onkeyup="buscarVenta()" />
                         </div>
                     </div>
                 </div>
@@ -42,14 +42,15 @@
                     </thead>
                     <p>
                     <tbody>
-                        <tr th:each="ventas : ${ordenVenta}">
+                        <tr th:each="ordenVenta : ${ventas}">
                             <td>
-                                <input type="checkbox" id="checkboxProducto" name="selectedCheckbox" th:value="${ventas.id_venta}" onclick="seleccionarUnicoCheckbox(this)"/>
+                                 <input type="checkbox" id="checkboxVentas" name="selectedVenta" th:value="${ordenVenta.id_venta}" onclick="seleccionarUnicoCheckboxVenta(this)"/>
                             </td>    
                             <td th:text="${ordenVenta.id_venta}"/>
                             <td th:text="${ordenVenta.estado}"/>
                             <td th:text="${ordenVenta.fecha_venta}"/>
                             <td th:text="${ordenVenta.precio_total}"/>
+                            <td th:text="${ordenVenta.ordenes_de_ventacol}"/>
                             <td th:text="${ordenVenta.usuario}"/>
                             <td th:text="${ordenVenta.cliente}"/>
                         </tr>

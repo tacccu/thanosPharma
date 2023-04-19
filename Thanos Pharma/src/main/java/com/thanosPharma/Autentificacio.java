@@ -62,14 +62,4 @@ public class Autentificacio {
 
     }
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        BCryptPasswordEncoder codificador = new BCryptPasswordEncoder();
-
-        auth.inMemoryAuthentication()
-                .withUser("usuario1").password(codificador.encode("123")).roles("user")
-                .and()
-                .withUser("usuario2").password(codificador.encode("admin")).roles("ADMIN");
-    }
-
 }

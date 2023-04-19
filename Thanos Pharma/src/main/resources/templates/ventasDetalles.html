@@ -15,13 +15,13 @@
     <body>
         <main>
             <div class="container" id="listaMainVentas">
+                <button type="button" class="btn btn-primary" onclick="location.href = '/ventas'" th:text="#{ventas.btn.volver}"/>
                 <div class="container">
-                    <h1 th:text="#{ventas.title}"/>
+                    <h1 th:text="#{ventasDetalles.title}"/>
                     <div id="topListaMainVentas">
-                        <button type="button" class="btn btn-primary" onclick="location.href = '/formVentas'" th:text="#{ventas.btn.add}"/>
-                        <button type="button" class="btn btn-primary" onclick="modifyOrDeleteProducto('modify')" th:text="#{ventas.btn.modify}"/>
-                        <button type="button" class="btn btn-primary" onclick="modifyOrDeleteProducto('delete')" th:text="#{ventas.btn.delete}"/>
-                        <button type="button" class="btn btn-primary" onclick="location.href = '/ventasDetalles'" th:text="#{ventas.btn.details}"/>
+                        <button type="button" class="btn btn-primary" onclick="location.href = '/formDetalleVentas'" th:text="#{ventas.btn.addDetails}"/>
+                        <button type="button" class="btn btn-primary" onclick="modifyOrDeleteProducto('modify')" th:text="#{ventas.btn.modifyDetails}"/>
+                        <button type="button" class="btn btn-primary" onclick="modifyOrDeleteProducto('delete')" th:text="#{ventas.btn.deleteDetails}" th:if="${isAdmin}"/>
                         <p>
                         <div class="col-xs-2">
                             <input type="search" class="form-control rounded" id="cuadro-busqueda" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon" onkeyup="buscar()" />
@@ -32,30 +32,26 @@
                     <thead>
                         <tr>
                             <th scope="col"/>
-                            <th scope="col" th:text="#{ventas.col.idsale}"/>
-                            <th scope="col" th:text="#{ventas.col.price}"/>
-                            <th scope="col" th:text="#{ventas.col.status}"/>
-                            <th scope="col" th:text="#{ventas.col.date}"/>
-                            <th scope="col" th:text="#{ventas.col.saleorder}"/>
-                            <th scope="col" th:text="#{ventas.col.idclient}"/>
-                            <th scope="col" th:text="#{ventas.col.iduser}"/>
+                            <th scope="col" th:text="#{ventasdetalles.col.saleorder}"/>
+                            <th scope="col" th:text="#{ventasdetalles.col.product}"/>
+                            <th scope="col" th:text="#{ventasdetalles.col.quantity}"/>
+                            <th scope="col" th:text="#{ventasdetalles.col.unitPrice}"/>
+                            <th scope="col" th:text="#{ventasdetalles.col.iva}"/>
+                            <th scope="col" th:text="#{ventasdetalles.col.totalProducts}"/>
                         </tr>
                     </thead>
                     <p>
                     <tbody>
-                        <tr th:each="producto : ${productos}">
+                        <tr th:each="venta : ${ventas}">
                             <td>
-                                <input type="checkbox" id="checkboxProducto" name="selectedProducto" th:value="${producto.codigoNacional}" onclick="seleccionarUnicoCheckbox(this)"/>
+                                <input type="checkbox" id="checkboxVentasDetalles" name="selectedDetalleVentas" th:value="${detalle_venta.ordenVenta}" onclick="seleccionarUnicoCheckbox(this)"/>
                             </td>    
-                            <td th:text="${producto.codigoNacional}"/>
-                            <td th:text="${producto.receta}"/>
-                            <td th:text="${producto.stock}"/>
-                            <td th:text="${producto.nombreProducto}"/>
-                            <td th:text="${producto.descripcion}"/>
-                            <td th:text="${producto.unidadesEmbalaje}"/>
-                            <td th:text="${producto.dosis}"/>
-                            <td th:text="${producto.precio}"/>
-                            <td th:text="${producto.iva}"/>
+                            <td th:text="${ventasdetalles.col.saleorder}"/>
+                            <td th:text="${ventasdetalles.col.product}"/>
+                            <td th:text="${ventasdetalles.col.quantity}"/>
+                            <td th:text="${ventasdetalles.col.unitPrice}"/>
+                            <td th:text="${ventasdetalles.col.iva}"/>
+                            <td th:text="${ventasdetalles.col.totalProducts}"/>
                         </tr>
                     </tbody>
                 </table>

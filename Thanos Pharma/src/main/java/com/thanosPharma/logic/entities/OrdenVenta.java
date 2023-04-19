@@ -5,6 +5,7 @@
 package com.thanosPharma.logic.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
@@ -23,15 +24,25 @@ public class OrdenVenta implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id_venta;
+    @NotNull(message = "El id de venta no puede ser nulo")
+    int id_venta;
 
+    @NotNull(message = "El campo de usuario no puede ser nulo")
     Usuario usuario;
+
+    @NotNull(message = "El campo de cliente no puede ser nulo")
     Cliente cliente;
 
+    @NotNull(message = "El precio total no puede ser nulo")
     double precio_total;
+
+    @NotNull(message = "El estado ha de tener algún valor")
     String estado;
-    Date fecha_venta;
+
+    @NotNull(message = "El orden de venta ha de tener algún valor")
+    String ordenes_de_ventacol;
     
+    Date fecha_venta;
 
     @OneToMany//Verificar primero el tipo de cascade(cascade = {CascadeType.ALL})
     private List<DetalleVenta> detallesVentaList;

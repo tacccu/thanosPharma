@@ -181,7 +181,7 @@ function modifyOrDeleteCliente(action) {
                     window.location.href = '/modifyVenta/' + id_venta;
                     break;
                 case 'delete':
-                    if (confirm("¿Estás seguro de que quieres eliminar este cliente?")) {
+                    if (confirm("¿Estás seguro de que quieres eliminar esta venta?")) {
                         window.location.href = '/deleteVenta/' + id_venta;
                     }
                     break;

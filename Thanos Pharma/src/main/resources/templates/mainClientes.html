@@ -47,6 +47,7 @@
                             <th scope="col" th:text="#{forClient.name}"/>
                             <th scope="col" th:text="#{forClient.surname}"/>
                             <th scope="col" th:text="#{forClient.location}"/>
+                            <th scope="col" th:text="#{forClient.town}"/>
                             <th scope="col" th:text="#{forClient.email}"/>
                             <th scope="col" th:text="#{forClient.postal}"/>
                             <th scope="col" th:text="#{forClient.phone}"/>
@@ -71,12 +72,6 @@
                     </tbody>
                 </table>
             </div>
-            <!--            <span th:text="#{lang.change}"></span>:
-                        <select id="locales">
-                            <option value=""></option>
-                            <option value="us" th:text="#{nomCom.lab.us}"></option>
-                            <option value="es" th:text="#{nomCom.lab.es}"></option>
-                        </select>-->
         </main>
         <div th:include="~{menu :: sidebar}"></div>
     </body>
