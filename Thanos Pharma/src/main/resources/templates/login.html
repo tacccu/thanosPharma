@@ -1,5 +1,5 @@
 <head>
-        <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
     <form method="POST" th:action="@{/login}">
@@ -7,9 +7,11 @@
             <div class="backbox">
                 <div class="loginMsg">
                     <div class="textcontent">
-                        <p class="title">¿No tienes cuenta?</p>
-                        <p>Regístrate a ThanosPharma!</p>
-                        <button id="switch1">REGÍSTRATE</button>
+                        <p>BiENVENIDO/A!</p>
+                        <p>ThanosPharma es una empresa de gestión de productos farmacéuticos.
+                            Ofrecen una amplia gama de productos, desde medicamentos genéricos 
+                            hasta productos especializados de alta tecnología, y están comprometidos con la 
+                            investigación y el desarrollo para mejorar la atención médica.</p>
                     </div>
                 </div>
                 <div class="signupMsg visibility">
@@ -30,18 +32,11 @@
                         <label for="password">Contraseña:</label>
                         <input type="password" name="password" id="password"/>
                     </div>
-                    <p>¿Has olvidado tu contraseña?</p>
+                    <a href="https://portal.mineco.gob.es/es-es/ministerio/Paginas/Politica_de_privacidad.aspx">Política de privacidad</a>
                     <button type="submit" value="Login">Continuar</button>
                 </div>
 
                 <div class="signup hide">
-                    <h2>REGÍSTRATE</h2>
-                    <div class="inputbox">
-                        <input type="text" name="fullname" placeholder="  Nombre completo">
-                        <input type="text" name="email" placeholder="  Correo electrónico">
-                        <input type="password" name="password" placeholder="  Contraseña">
-                    </div>
-                    <button>REGÍSTRATE</button>
                 </div>
 
             </div>
