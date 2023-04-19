@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ThanosPharmaApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ThanosPharmaApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ThanosPharmaApplication.class, args);
+    }
 
 }

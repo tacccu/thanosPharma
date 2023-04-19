@@ -9,6 +9,7 @@ import com.thanosPharma.logic.entities.DetalleVenta;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -22,17 +23,21 @@ public class DetalleVentaService implements DetalleVentaServiceInterface {
 
     @Override
     public void guardar(DetalleVenta detalleVenta) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        detalleVentaDAO.save(detalleVenta);
     }
 
     @Override
     public void borrar(DetalleVenta detalleVenta) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        detalleVentaDAO.delete(detalleVenta);
     }
 
     @Override
     public List<DetalleVenta> listDetallesVenta() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return (List<DetalleVenta>) detalleVentaDAO.findAll();
     }
 
+    @Transactional(readOnly = true)
+    public DetalleVenta searchSaleDetails(DetalleVenta detalleVenta) {
+        return detalleVentaDAO.findById(detalleVenta.getOrdenVenta()).orElse(null);
+    }
 }
