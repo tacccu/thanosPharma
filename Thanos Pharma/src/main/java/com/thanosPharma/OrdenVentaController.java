@@ -4,12 +4,20 @@
  */
 package com.thanosPharma;
 
+
+import com.thanosPharma.logic.entities.OrdenVenta;
+import com.thanosPharma.logic.entities.Producto;
 import com.thanosPharma.logic.services.OrdenVentaService;
-import com.thanosPharma.logic.services.ProductoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
 
 /**
  *
@@ -23,23 +31,50 @@ public class OrdenVentaController {
 
     @GetMapping("/ventas")
     public String homeVentas(Model model) {
-
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        boolean isAdmin = auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("admin"));
+        model.addAttribute("isAdmin", isAdmin);     
+        //model.addAttribute("ventas", ordenVentaService.listOrdenesVenta());
 
         return "mainVentas";
     }
-    
-    @GetMapping("/formVentas")
-    public String formVentas(Model model) {
 
+    @GetMapping("/formVentas")
+    public String formVentas(OrdenVenta ordenVenta) {
 
         return "formVentas";
     }
-    
-    @GetMapping("/ventasDetalles")
-    public String homeProductos(Model model) {
 
+    @GetMapping("/ventasDetalles")
+    public String homeProductos(OrdenVenta ordenVenta) {
 
         return "ventasDetalles";
     }
 
+     @PostMapping("/saveVentas")
+    public String saveVentas(@Valid OrdenVenta ordenVenta, BindingResult br) {
+        if (br.hasErrors()) {
+            return "formVentas";
+        }
+        ordenVentaService.guardar(ordenVenta);
+
+        return "redirect:/mainVentas";
+    }
+    
+    @GetMapping("/modifyVentas/{id_venta}")
+    public String modifyVentas(OrdenVenta ordenVenta, Model model) {
+
+        model.addAttribute("venta", ordenVentaService.searchSale(ordenVenta));
+        model.addAttribute("isAModification", true);
+
+        return "formVentas";
+    }
+
+    @GetMapping("/deleteVentas/{id_venta}")
+    public String deleteVentas(OrdenVenta ordenVenta) {
+
+        ordenVentaService.borrar(ordenVenta);
+
+        return "redirect:/ventas";
+    }
 }

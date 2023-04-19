@@ -11,6 +11,6 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author Kiwi
  */
-public interface OrdenVentaDAO extends CrudRepository<OrdenVenta, Long> {
+public interface OrdenVentaDAO extends CrudRepository<OrdenVenta, Integer> {
 
 }

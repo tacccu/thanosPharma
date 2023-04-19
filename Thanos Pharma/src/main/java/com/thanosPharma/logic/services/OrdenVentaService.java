@@ -9,6 +9,7 @@ import com.thanosPharma.logic.entities.OrdenVenta;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -16,23 +17,27 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class OrdenVentaService implements OrdenVentaServiceInterface {
-
     @Autowired
     private OrdenVentaDAO ordenVentaDAO;
 
     @Override
     public void guardar(OrdenVenta ordenVenta) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ordenVentaDAO.save(ordenVenta);
     }
 
     @Override
     public void borrar(OrdenVenta ordenVenta) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ordenVentaDAO.delete(ordenVenta);
     }
 
     @Override
     public List<OrdenVenta> listOrdenesVenta() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return (List<OrdenVenta>) ordenVentaDAO.findAll();    
     }
-
+    
+    @Transactional(readOnly = true)
+    public OrdenVenta searchSale(OrdenVenta ordenVenta) {
+        return ordenVentaDAO.findById(ordenVenta.getId_venta()).orElse(null);
+    }
+           
 }

@@ -18,5 +18,5 @@ public interface OrdenVentaServiceInterface {
     public void guardar(OrdenVenta ordenVenta);
 
     public void borrar(OrdenVenta ordenVenta);
-    
+  
 }
